@@ -5,18 +5,28 @@
 [ext_resource type="AudioStream" uid="uid://da2myeeifes18" path="res://assets/Musicas/Som game over.mp3" id="4_8u835"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8u835"]
-bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0)
-corner_radius_top_left = 25
-corner_radius_top_right = 21
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 16
+bg_color = Color(0, 0, 0, 0.4)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.1, 0.3, 0.7)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k2vha"]
-bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0.2)
-corner_radius_top_left = 25
-corner_radius_top_right = 21
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 16
+bg_color = Color(1, 0.1, 0.3, 0.15)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 0.15, 0.35, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="game_over" type="Control" unique_id=708054210]
 layout_mode = 3

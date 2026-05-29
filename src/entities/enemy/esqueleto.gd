@@ -121,5 +121,26 @@ func morrer():
 
 	morto = true
 	Global.moedas += 1
+	spawn_death_particles()
 	animacao_esqueleto.play("morte")
 	set_physics_process(false)
+
+func spawn_death_particles():
+	var particles = CPUParticles2D.new()
+	particles.global_position = global_position + Vector2(55, 12)
+	particles.emitting = true
+	particles.one_shot = true
+	particles.explosiveness = 1.0
+	particles.amount = 35
+	particles.lifetime = 0.5
+	particles.spread = 360.0
+	particles.gravity = Vector2(0, 300)
+	particles.initial_velocity_min = 150.0
+	particles.initial_velocity_max = 280.0
+	particles.color = Color(0.9, 0.1, 0.6) if e_chefe else Color(1.0, 0.4, 0.1)
+	particles.scale_amount_min = 2.5
+	particles.scale_amount_max = 6.0
+	get_tree().current_scene.add_child(particles)
+
+	await get_tree().create_timer(0.6).timeout
+	particles.queue_free()

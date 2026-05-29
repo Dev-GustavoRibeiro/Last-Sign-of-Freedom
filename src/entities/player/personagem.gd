@@ -15,6 +15,8 @@ var tempo = 0.0
 var atirando = false
 var municao_maxima = 12
 var municao_atual = 12
+var shake_intensity = 0.0
+var shake_decay = 7.0
 
 func _physics_process(delta: float) -> void:
 	tempo += delta
@@ -22,6 +24,16 @@ func _physics_process(delta: float) -> void:
 	var segundos = int(tempo) % 60
 
 	tempo_label.text = "%02d:%02d" % [minutos, segundos]
+
+	# Process camera shake
+	if shake_intensity > 0:
+		$camera_personagem.offset = Vector2(
+			randf_range(-shake_intensity, shake_intensity),
+			randf_range(-shake_intensity, shake_intensity)
+		)
+		shake_intensity = move_toward(shake_intensity, 0.0, shake_decay * delta)
+	else:
+		$camera_personagem.offset = Vector2.ZERO
 
 	# Gravidade
 	if not is_on_floor():
@@ -88,6 +100,7 @@ func atirar():
 	atirando = true
 	municao_atual -= 1
 	atualizar_municao()
+	shake_intensity = 3.0
 
 	animacao_personagem.play("shoot")
 	animacao_personagem.frame = 0
@@ -111,4 +124,9 @@ func atirar():
 	atirando = false
 
 func receber_dano():
+	# Violent screen shake and HDR hitstop flash
+	shake_intensity = 15.0
+	self.modulate = Color(8.0, 0.1, 0.1) # Glowing HDR red
+	set_physics_process(false)
+	await get_tree().create_timer(0.4).timeout
 	get_tree().change_scene_to_file("res://src/ui/menus/game_over.tscn")
