@@ -34,12 +34,14 @@ func _on_body_entered(body):
 
 		if body.is_in_group("player"):
 			print("ACERTOU O JOGADOR")
+			if body.has_method("receber_dano"):
+				body.receber_dano()
 
 		queue_free()
 		return
 
 	# Bala do jogador
-	if body.is_in_group("inimigos"):
+	if body.is_in_group("inimigos") or body.is_in_group("inimigo"):
 		body.morrer()
 
 	queue_free()

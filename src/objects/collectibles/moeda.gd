@@ -13,6 +13,6 @@ func _on_body_entered(body: Node2D) -> void:
 		animacao_municao.play("captura")
 
 
-func _on_animacaomunicao_animation_finished() -> void:
+func _on_animacaomoeda_animation_finished() -> void:
 
 	queue_free()

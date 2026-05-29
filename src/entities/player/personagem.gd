@@ -109,3 +109,6 @@ func atirar():
 	await animacao_personagem.animation_finished
 
 	atirando = false
+
+func receber_dano():
+	get_tree().change_scene_to_file("res://src/ui/menus/game_over.tscn")
