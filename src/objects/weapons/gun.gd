@@ -1,5 +1,5 @@
 extends CharacterBody2D
-var bullet_path=preload("res://bullets.tscn")
+var bullet_path=preload("res://src/objects/bullets/bullets.tscn")
 
 func _physics_process(delta: float) -> void:
 	look_at(get_global_mouse_position())

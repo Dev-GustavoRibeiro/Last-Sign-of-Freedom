@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://btkak6fulni13"]
 
-[ext_resource type="Script" uid="uid://ba7do66ioo60g" path="res://esqueleto.gd" id="1_lrdmc"]
-[ext_resource type="PackedScene" uid="uid://b1xeheg0vesqd" path="res://bala_inimigo.tscn" id="2_q6t52"]
+[ext_resource type="Script" uid="uid://ba7do66ioo60g" path="res://src/entities/enemy/esqueleto.gd" id="1_lrdmc"]
+[ext_resource type="PackedScene" uid="uid://b1xeheg0vesqd" path="res://src/objects/bullets/bala_inimigo.tscn" id="2_q6t52"]
 [ext_resource type="Texture2D" uid="uid://dh4hbwi6fx0pa" path="res://assets/Soldado.png" id="2_qahio"]
 [ext_resource type="Texture2D" uid="uid://bv7k730250kpr" path="res://assets/soldado morto.png" id="3_qahio"]
-[ext_resource type="PackedScene" uid="uid://lx8y66krn3q4" path="res://hitbox.tscn" id="4_qahio"]
+[ext_resource type="PackedScene" uid="uid://lx8y66krn3q4" path="res://src/components/hitbox/hitbox.tscn" id="4_qahio"]
 [ext_resource type="Texture2D" uid="uid://ca3s26gabn75h" path="res://assets/Soldado atirando.png" id="4_w7kkk"]
 [ext_resource type="Texture2D" uid="uid://c3lbjpqv85lf1" path="res://assets/soldado idle.png" id="5_bvepm"]
 

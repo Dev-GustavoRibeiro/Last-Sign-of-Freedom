@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c4pypq36v8d1x"]
 
-[ext_resource type="Script" uid="uid://bvqks6v1i17r8" path="res://gun.gd" id="1_dk5gl"]
+[ext_resource type="Script" uid="uid://bvqks6v1i17r8" path="res://src/objects/weapons/gun.gd" id="1_dk5gl"]
 [ext_resource type="Texture2D" uid="uid://duyhw2qdmvjal" path="res://assets/Imagens/Futuristc_gun.png" id="2_dk5gl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8iju2"]

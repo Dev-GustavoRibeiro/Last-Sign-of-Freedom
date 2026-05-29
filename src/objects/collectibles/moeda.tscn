@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cinfx7aoufrf6"]
 
-[ext_resource type="Script" uid="uid://dphf3x28dvtib" path="res://moeda.gd" id="1_jvmwt"]
+[ext_resource type="Script" uid="uid://dphf3x28dvtib" path="res://src/objects/collectibles/moeda.gd" id="1_jvmwt"]
 [ext_resource type="Texture2D" uid="uid://8h8bjk0tb5hb" path="res://assets/moeda/Yellow_Sparkle (16 x 16).png" id="2_bce4n"]
 [ext_resource type="Texture2D" uid="uid://cglbrtqwmuyel" path="res://assets/Bala/bala girando.png" id="3_bce4n"]
 
