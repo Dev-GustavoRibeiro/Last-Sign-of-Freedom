@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://cwowrwewfreyb"]
+
+[ext_resource type="Script" uid="uid://bj7qixsf0i76n" path="res://game_over.gd" id="1_ccer4"]
+[ext_resource type="Texture2D" uid="uid://bt8h86jtc1ta1" path="res://assets/Imagens/game_over.png" id="2_ccer4"]
+[ext_resource type="AudioStream" uid="uid://da2myeeifes18" path="res://assets/Musicas/Som game over.mp3" id="4_8u835"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8u835"]
+bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0)
+corner_radius_top_left = 25
+corner_radius_top_right = 21
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k2vha"]
+bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0.2)
+corner_radius_top_left = 25
+corner_radius_top_right = 21
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 16
+
+[node name="game_over" type="Control" unique_id=708054210]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ccer4")
+
+[node name="fundo_over" type="TextureRect" parent="." unique_id=958560176]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ccer4")
+expand_mode = 2
+
+[node name="menu" type="Button" parent="." unique_id=1708367869]
+layout_mode = 0
+offset_left = 606.0
+offset_top = 639.0
+offset_right = 1295.0
+offset_bottom = 733.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_8u835")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k2vha")
+
+[node name="jogar_novamente" type="Button" parent="." unique_id=1982548765]
+layout_mode = 0
+offset_left = 602.0
+offset_top = 517.0
+offset_right = 1293.0
+offset_bottom = 613.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_8u835")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k2vha")
+
+[node name="sair" type="Button" parent="." unique_id=1765611596]
+layout_mode = 0
+offset_left = 607.0
+offset_top = 755.0
+offset_right = 1294.0
+offset_bottom = 853.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_8u835")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k2vha")
+
+[node name="Som_gameover" type="AudioStreamPlayer" parent="." unique_id=708032360]
+stream = ExtResource("4_8u835")
+volume_db = -10.0
+autoplay = true
+
+[connection signal="pressed" from="menu" to="." method="_on_mennu_pressed"]
+[connection signal="mouse_entered" from="jogar_novamente" to="." method="_on_jogar_novamente_mouse_entered"]
+[connection signal="mouse_exited" from="jogar_novamente" to="." method="_on_jogar_novamente_mouse_exited"]
+[connection signal="pressed" from="jogar_novamente" to="." method="_on_jogar_novamente_pressed"]
+[connection signal="pressed" from="sair" to="." method="_on_sair_pressed"]

@@ -1,0 +1,15 @@
+TileMapLayer
+AnimatedSprite2D
+Sprite2D
+Parallax2D
+CollisionShape2D
+Area2D
+Timer
+Marker2D
+TextureRect
+Label
+Node2D
+CanvasLayer
+VisibleOnScreenNotifier2D
+CharacterBody2D
+StaticBody2D

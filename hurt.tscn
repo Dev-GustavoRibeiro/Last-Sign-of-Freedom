@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://ymv042ma3c0o"]
+
+[ext_resource type="Script" uid="uid://dxdglt4nhmlp4" path="res://hurt.gd" id="1_66qiw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ep68k"]
+size = Vector2(27, 19)
+
+[node name="hurt" type="Area2D" unique_id=1761511818]
+script = ExtResource("1_66qiw")
+
+[node name="collision_hurt" type="CollisionShape2D" parent="." unique_id=1038252170]
+position = Vector2(206.5, 244.5)
+shape = SubResource("RectangleShape2D_ep68k")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dj6qopftuqt0e"]
+
+[ext_resource type="Script" uid="uid://f2dghit7sjlk" path="res://controle.gd" id="1_64ctp"]
+[ext_resource type="Texture2D" uid="uid://cs8b2qdc13bhl" path="res://assets/moeda/Coin.png" id="2_8sq4i"]
+
+[node name="hud" type="CanvasLayer" unique_id=944996730]
+
+[node name="Controle" type="Control" parent="." unique_id=1051269496]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_64ctp")
+
+[node name="margem" type="MarginContainer" parent="Controle" unique_id=446483894]
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+
+[node name="colunas" type="HBoxContainer" parent="Controle/margem" unique_id=263018603]
+layout_mode = 2
+
+[node name="imagem_moeda" type="TextureRect" parent="Controle/margem/colunas" unique_id=117572961]
+layout_mode = 2
+texture = ExtResource("2_8sq4i")
+
+[node name="Label" type="Label" parent="Controle/margem/colunas" unique_id=906909533]
+layout_mode = 2
+text = "0"

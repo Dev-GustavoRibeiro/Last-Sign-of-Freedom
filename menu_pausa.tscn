@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://w1qaufyhg8mo"]
+
+[ext_resource type="Script" uid="uid://c1imk6ux5auu" path="res://menu_pausa.gd" id="1_jd2x8"]
+[ext_resource type="Texture2D" uid="uid://7e8dubsgcg30" path="res://assets/Imagens/tela_pause.png" id="2_3ml7n"]
+[ext_resource type="AudioStream" uid="uid://bv5vrmqsuego1" path="res://assets/Musicas/Som iniciar.mp3" id="3_tyo0u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tyo0u"]
+bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0)
+corner_radius_top_left = 67
+corner_radius_top_right = 38
+corner_radius_bottom_right = 56
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f0gls"]
+bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0.2)
+corner_radius_top_left = 67
+corner_radius_top_right = 38
+corner_radius_bottom_right = 56
+corner_radius_bottom_left = 30
+
+[node name="menu_pausa" type="CanvasLayer" unique_id=1429306329]
+script = ExtResource("1_jd2x8")
+
+[node name="fundo" type="TextureRect" parent="." unique_id=342249298]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -5.0
+offset_right = 4.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_3ml7n")
+expand_mode = 1
+
+[node name="voltar" type="Button" parent="." unique_id=319433076]
+offset_left = 436.0
+offset_top = 437.0
+offset_right = 1460.0
+offset_bottom = 579.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_tyo0u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_f0gls")
+
+[node name="sair" type="Button" parent="." unique_id=729049762]
+offset_left = 434.0
+offset_top = 635.0
+offset_right = 1459.0
+offset_bottom = 778.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_tyo0u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_f0gls")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=910936416]
+stream = ExtResource("3_tyo0u")
+volume_db = -25.0
+parameters/looping = true
+
+[connection signal="pressed" from="voltar" to="." method="_on_voltar_pressed"]
+[connection signal="pressed" from="sair" to="." method="_on_sair_pressed"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bl2ca26ltd2j0"
+path="res://.godot/imported/Som fundo.mp3-bcc2da7d4180c97bd3322290a79354d7.mp3str"
+
+[deps]
+
+source_file="res://assets/Musicas/Som fundo.mp3"
+dest_files=["res://.godot/imported/Som fundo.mp3-bcc2da7d4180c97bd3322290a79354d7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

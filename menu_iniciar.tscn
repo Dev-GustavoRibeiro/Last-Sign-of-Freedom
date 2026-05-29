@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://dmumphbef55n3"]
+
+[ext_resource type="Script" uid="uid://b6lbbxpeo28tt" path="res://menu_iniciar.gd" id="1_sqy3t"]
+[ext_resource type="Texture2D" uid="uid://b4v02aknlkx3n" path="res://assets/Imagens/tela_inicio.png" id="2_fi7yl"]
+[ext_resource type="Texture2D" uid="uid://k4wwyv65uo57" path="res://assets/Imagens/logo_geral.png" id="3_0em1n"]
+[ext_resource type="AudioStream" uid="uid://bv5vrmqsuego1" path="res://assets/Musicas/Som iniciar.mp3" id="4_fi7yl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bwc8r"]
+bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0)
+corner_radius_top_left = 36
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 34
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u2ght"]
+bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0.2)
+corner_radius_top_left = 36
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 34
+
+[node name="menu_iniciar" type="Control" unique_id=93622497]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sqy3t")
+
+[node name="margens" type="MarginContainer" parent="." unique_id=1391300824]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="fundo" type="TextureRect" parent="margens" unique_id=887568817]
+layout_mode = 2
+texture = ExtResource("2_fi7yl")
+expand_mode = 1
+
+[node name="iniciar" type="Button" parent="." unique_id=596324140]
+layout_mode = 0
+offset_left = 94.0
+offset_top = 413.0
+offset_right = 684.0
+offset_bottom = 529.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_bwc8r")
+theme_override_styles/hover = SubResource("StyleBoxFlat_u2ght")
+
+[node name="sair" type="Button" parent="." unique_id=1037761966]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 562.0
+offset_right = 683.0
+offset_bottom = 674.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_bwc8r")
+theme_override_styles/hover = SubResource("StyleBoxFlat_u2ght")
+
+[node name="logo" type="TextureRect" parent="." unique_id=1018998317]
+layout_mode = 0
+offset_left = 248.0
+offset_top = 201.0
+offset_right = 465.0
+offset_bottom = 370.0
+texture = ExtResource("3_0em1n")
+expand_mode = 1
+
+[node name="som_inicio" type="AudioStreamPlayer" parent="." unique_id=1223345875]
+stream = ExtResource("4_fi7yl")
+volume_db = -15.0
+autoplay = true
+parameters/looping = true
+
+[connection signal="pressed" from="iniciar" to="." method="_on_iniciar_pressed"]
+[connection signal="pressed" from="sair" to="." method="_on_sair_pressed"]

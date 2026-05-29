@@ -1,0 +1,99 @@
+extends CharacterBody2D
+
+@onready var detector_colisao: RayCast2D = $detector_colisao
+@onready var animacao_esqueleto: AnimatedSprite2D = $animacao_esqueleto
+@onready var ponto_tiro: Marker2D = $PontoTiro
+
+@export var bala_scene: PackedScene
+
+const SPEED = 30.0
+var direction := 1
+
+var jogador: Node2D
+var jogador_detectado := false
+
+func _ready():
+	jogador = get_tree().get_first_node_in_group("player")
+	animacao_esqueleto.play("andando")
+
+func _physics_process(delta: float) -> void:
+
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+
+	if jogador_detectado:
+
+		# Para completamente
+		velocity.x = 0
+
+		# Olha para o jogador
+		if jogador:
+			animacao_esqueleto.flip_h = jogador.global_position.x < global_position.x
+
+		# Só toca idle se não estiver atirando ou morrendo
+		if animacao_esqueleto.animation != "atirando" and animacao_esqueleto.animation != "morte":
+			if animacao_esqueleto.animation != "idle":
+				animacao_esqueleto.play("idle")
+
+	else:
+
+		# Patrulha
+		if detector_colisao.is_colliding():
+			direction *= -1
+			detector_colisao.scale.x *= -1
+			animacao_esqueleto.scale.x *= -1
+
+		velocity.x = direction * SPEED
+
+		if animacao_esqueleto.animation != "andando":
+			animacao_esqueleto.play("andando")
+
+	move_and_slide()
+
+func atirar():
+
+	if jogador == null:
+		return
+
+	animacao_esqueleto.play("atirando")
+
+	var bala = bala_scene.instantiate()
+	bala.dono = self
+	bala.global_position = ponto_tiro.global_position
+
+	var direcao = (jogador.global_position - ponto_tiro.global_position).normalized()
+	bala.direcao = direcao
+
+	get_tree().current_scene.add_child(bala)
+
+func _on_timer_timeout() -> void:
+
+	if jogador_detectado:
+		atirar()
+
+func _on_areadeteccao_body_entered(body: Node2D) -> void:
+
+	if body.is_in_group("player"):
+		jogador_detectado = true
+
+func _on_areadeteccao_body_exited(body: Node2D) -> void:
+
+	if body.is_in_group("player"):
+		jogador_detectado = false
+
+func _on_animacao_esqueleto_animation_finished() -> void:
+
+	if animacao_esqueleto.animation == "morte":
+		queue_free()
+
+	elif animacao_esqueleto.animation == "atirando":
+
+		if jogador_detectado:
+			animacao_esqueleto.play("idle")
+		else:
+			animacao_esqueleto.play("andando")
+
+func morrer():
+
+	animacao_esqueleto.play("morte")
+	set_physics_process(false)
