@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://coik77xgbl8rw"
-path="res://.godot/imported/at01.ttf-9bff451df6e4dbcd28338591c1e22baf.fontdata"
+uid="uid://bgg8pfqjfsef6"
+path="res://.godot/imported/at01.ttf-8ec6ddb1bae91d53264ee26c07d56c85.fontdata"
 
 [deps]
 
-source_file="res://assets/font/at01.ttf"
-dest_files=["res://.godot/imported/at01.ttf-9bff451df6e4dbcd28338591c1e22baf.fontdata"]
+source_file="res://assets/Font/at01.ttf"
+dest_files=["res://.godot/imported/at01.ttf-8ec6ddb1bae91d53264ee26c07d56c85.fontdata"]
 
 [params]
 
@@ -23,7 +23,7 @@ allow_system_fallback=true
 force_autohinter=false
 modulate_color_glyphs=false
 hinting=1
-subpixel_positioning=1
+subpixel_positioning=4
 keep_rounding_remainders=true
 oversampling=0.0
 Fallbacks=null

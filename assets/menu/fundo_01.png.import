@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpx3vp56aaxeb"
-path="res://.godot/imported/fundo_01.png-49b3196b0cad2b656262e6f762f64c8e.ctex"
+uid="uid://crpqvhap1j4gk"
+path="res://.godot/imported/fundo_01.png-cd5ff8b7884f1f9d55643832a246a7d8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/menu/fundo_01.png"
-dest_files=["res://.godot/imported/fundo_01.png-49b3196b0cad2b656262e6f762f64c8e.ctex"]
+source_file="res://assets/Menu/fundo_01.png"
+dest_files=["res://.godot/imported/fundo_01.png-cd5ff8b7884f1f9d55643832a246a7d8.ctex"]
 
 [params]
 
