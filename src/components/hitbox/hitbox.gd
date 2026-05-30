@@ -12,5 +12,6 @@ func _process(_delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.name == "personagem":
-		owner.animacao_esqueleto.play("morte")
+	# Disabled to prevent player from killing enemies by jumping on/touching them.
+	# Enemies can only be killed by bullets now!
+	pass

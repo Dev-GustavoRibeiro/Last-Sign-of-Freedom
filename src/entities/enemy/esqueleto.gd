@@ -35,8 +35,6 @@ func _ready():
 	elif is_fase2:
 		speed = 55.0
 
-	setup_aura()
-
 func _physics_process(delta: float) -> void:
 
 	if not is_on_floor():
@@ -166,17 +164,4 @@ func spawn_death_particles():
 	await get_tree().create_timer(0.6).timeout
 	particles.queue_free()
 
-func setup_aura():
-	var aura = CPUParticles2D.new()
-	aura.name = "EnemyAura"
-	aura.amount = 12 if e_chefe else 6
-	aura.lifetime = 0.8
-	aura.preprocess = 0.8
-	aura.emission_shape = CPUParticles2D.EMISSION_SHAPE_SPHERE
-	aura.emission_sphere_radius = 26.0 if e_chefe else 15.0
-	aura.gravity = Vector2(0, -35)
-	aura.color = Color(1.0, 0.1, 0.2, 0.3) # Neon red-crimson glowing aura
-	aura.scale_amount_min = 4.0
-	aura.scale_amount_max = 8.0
-	add_child(aura)
-	move_child(aura, 0)
+

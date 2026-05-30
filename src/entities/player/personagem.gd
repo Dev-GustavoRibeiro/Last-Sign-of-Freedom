@@ -125,7 +125,6 @@ func atualizar_municao():
 func _ready():
 	add_to_group("player")
 	atualizar_municao()
-	setup_aura()
 	
 func atirar():
 	# Caiting (Kiting) auto-aim: face the nearest enemy within 400px before firing
@@ -177,24 +176,7 @@ func receber_dano():
 	await get_tree().create_timer(0.4).timeout
 	get_tree().change_scene_to_file("res://src/ui/menus/game_over.tscn")
 
-func setup_aura():
-	var aura = CPUParticles2D.new()
-	aura.name = "PlayerAura"
-	aura.amount = 8
-	aura.lifetime = 1.0
-	aura.preprocess = 1.0
-	aura.emission_shape = CPUParticles2D.EMISSION_SHAPE_SPHERE
-	aura.emission_sphere_radius = 20.0
-	aura.gravity = Vector2(0, -25)
-	aura.direction = Vector2(0, -1)
-	aura.spread = 30.0
-	aura.initial_velocity_min = 5.0
-	aura.initial_velocity_max = 12.0
-	aura.color = Color(0.4, 0.9, 1.0, 0.25) # Neon cyan glowing aura
-	aura.scale_amount_min = 5.0
-	aura.scale_amount_max = 10.0
-	add_child(aura)
-	move_child(aura, 0)
+
 
 func spawn_dash_trail():
 	var particles = CPUParticles2D.new()
