@@ -6,7 +6,7 @@ extends CharacterBody2D
 
 @export var bala_scene: PackedScene
 
-const SPEED = 30.0
+var speed = 30.0
 var direction := 1
 
 var jogador: Node2D
@@ -20,16 +20,34 @@ func _ready():
 	jogador = get_tree().get_first_node_in_group("player")
 	animacao_esqueleto.play("andando")
 
+	var is_fase2 = (get_tree().current_scene.name == "fase2")
+
 	if name == "esqueleto4":
 		e_chefe = true
-		vida = 6
-		self.modulate = Color(1.0, 0.4, 0.4)
-		self.scale = Vector2(1.6, 1.6)
+		if is_fase2:
+			vida = 10
+			self.modulate = Color(1.0, 0.1, 1.0) # Hot neon magenta
+			self.scale = Vector2(2.0, 2.0)
+		else:
+			vida = 6
+			self.modulate = Color(1.0, 0.4, 0.4)
+			self.scale = Vector2(1.6, 1.6)
+	elif is_fase2:
+		speed = 55.0
+
+	setup_aura()
 
 func _physics_process(delta: float) -> void:
 
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+
+	# Adjust sprite scale based on active animation to prevent shrinking/distortion
+	var base_scale = Vector2(0.11191573, 0.08449935)
+	if animacao_esqueleto.animation == "atirando" or animacao_esqueleto.animation == "idle":
+		animacao_esqueleto.scale = base_scale * Vector2(307.0 / 158.0, 1024.0 / 529.0)
+	else:
+		animacao_esqueleto.scale = base_scale
 
 	if jogador_detectado:
 
@@ -50,10 +68,10 @@ func _physics_process(delta: float) -> void:
 		# Patrulha
 		if detector_colisao.is_colliding():
 			direction *= -1
-			detector_colisao.scale.x *= -1
-			animacao_esqueleto.scale.x *= -1
+			detector_colisao.scale.x = direction
+			animacao_esqueleto.flip_h = (direction < 0)
 
-		velocity.x = direction * SPEED
+		velocity.x = direction * speed
 
 		if animacao_esqueleto.animation != "andando":
 			animacao_esqueleto.play("andando")
@@ -95,7 +113,10 @@ func _on_animacao_esqueleto_animation_finished() -> void:
 
 	if animacao_esqueleto.animation == "morte":
 		if e_chefe:
-			get_tree().change_scene_to_file("res://src/ui/menus/vitoria.tscn")
+			if get_tree().current_scene.name == "mundo":
+				get_tree().change_scene_to_file("res://src/scenes/mundo/fase2.tscn")
+			else:
+				get_tree().change_scene_to_file("res://src/ui/menus/vitoria.tscn")
 		else:
 			queue_free()
 
@@ -144,3 +165,18 @@ func spawn_death_particles():
 
 	await get_tree().create_timer(0.6).timeout
 	particles.queue_free()
+
+func setup_aura():
+	var aura = CPUParticles2D.new()
+	aura.name = "EnemyAura"
+	aura.amount = 12 if e_chefe else 6
+	aura.lifetime = 0.8
+	aura.preprocess = 0.8
+	aura.emission_shape = CPUParticles2D.EMISSION_SHAPE_SPHERE
+	aura.emission_sphere_radius = 26.0 if e_chefe else 15.0
+	aura.gravity = Vector2(0, -35)
+	aura.color = Color(1.0, 0.1, 0.2, 0.3) # Neon red-crimson glowing aura
+	aura.scale_amount_min = 4.0
+	aura.scale_amount_max = 8.0
+	add_child(aura)
+	move_child(aura, 0)

@@ -539,7 +539,7 @@ texture = ExtResource("13_0crsg")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_0crsg")
 
-[node name="mundo" type="Node2D" unique_id=754112035 script=ExtResource("1_mundo_gd")]
+[node name="fase2" type="Node2D" unique_id=754112035 script=ExtResource("1_mundo_gd")]
 position = Vector2(1, 0)
 
 [node name="backgound" type="Parallax2D" parent="." unique_id=388574630]
