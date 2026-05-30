@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://src/ui/menus/vitoria.gd" id="1_vitoria"]
 [ext_resource type="Texture2D" uid="uid://b4v02aknlkx3n" path="res://assets/Imagens/tela_inicio.png" id="2_fundo"]
 [ext_resource type="FontFile" uid="uid://b7n2hanj6p4ov" path="res://assets/Fonte numeros/Perfect DOS VGA 437.ttf" id="3_font"]
-[ext_resource type="AudioStream" path="res://assets/Musicas/Som iniciar.mp3" id="4_audio"]
+[ext_resource type="AudioStream" path="res://assets/Soundtrack/Som iniciar.mp3" id="4_audio"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_normal"]
 bg_color = Color(0, 0, 0, 0.4)

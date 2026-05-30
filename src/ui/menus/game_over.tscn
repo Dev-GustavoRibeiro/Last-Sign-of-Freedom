@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bj7qixsf0i76n" path="res://src/ui/menus/game_over.gd" id="1_ccer4"]
 [ext_resource type="Texture2D" uid="uid://bt8h86jtc1ta1" path="res://assets/Imagens/game_over.png" id="2_ccer4"]
-[ext_resource type="AudioStream" uid="uid://da2myeeifes18" path="res://assets/Musicas/Som game over.mp3" id="4_8u835"]
+[ext_resource type="AudioStream" uid="uid://da2myeeifes18" path="res://assets/Soundtrack/Som game over.mp3" id="4_8u835"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8u835"]
 bg_color = Color(0, 0, 0, 0.4)

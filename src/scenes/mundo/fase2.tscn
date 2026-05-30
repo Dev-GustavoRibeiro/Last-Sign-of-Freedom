@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://b4v0e7nlnov3b"]
+[gd_scene format=4]
 
 [ext_resource type="Texture2D" uid="uid://c6n0y2p2y3mcc" path="res://assets/Imagens/ChatGPT Image 26 de mai. de 2026, 14_50_51.png" id="1_pfhxm"]
 [ext_resource type="PackedScene" uid="uid://os66k3d186t" path="res://src/entities/player/personagem.tscn" id="2_t8jxu"]
