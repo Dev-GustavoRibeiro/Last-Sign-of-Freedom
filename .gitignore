@@ -1,0 +1,16 @@
+# Godot 4+ ignore rules
+.godot/
+*.translation
+*.import
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Scratch and other development scripts
+scratch/

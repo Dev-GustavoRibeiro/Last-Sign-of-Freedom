@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dj6qopftuqt0e"]
 
-[ext_resource type="Script" uid="uid://f2dghit7sjlk" path="res://src/ui/hud/controle.gd" id="1_64ctp"]
-[ext_resource type="Texture2D" uid="uid://cs8b2qdc13bhl" path="res://assets/moeda/Coin.png" id="2_8sq4i"]
+[ext_resource type="Script" uid="uid://f2dghit7sjlk" path="res://src/ui/hud/hud.gd" id="1_64ctp"]
+[ext_resource type="Texture2D" uid="uid://cs8b2qdc13bhl" path="res://assets/coin/coin.png" id="2_8sq4i"]
 
 [node name="hud" type="CanvasLayer" unique_id=944996730]
 

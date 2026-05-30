@@ -13,7 +13,7 @@ func _process(_delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("inimigos") or body.is_in_group("inimigo"):
-		if owner and owner.has_method("receber_dano"):
-			owner.receber_dano()
+		if owner and owner.has_method("take_damage"):
+			owner.take_damage()
 		else:
 			get_tree().change_scene_to_file("res://src/ui/menus/game_over.tscn")

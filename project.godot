@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="minha_caverna"
+config/name="last_sign_of_freedom"
 run/main_scene="uid://dmumphbef55n3"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"

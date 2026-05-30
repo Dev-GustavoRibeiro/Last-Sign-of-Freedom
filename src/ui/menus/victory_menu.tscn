@@ -1,0 +1,177 @@
+[gd_scene format=3 uid="uid://dpwgewrwyvito"]
+
+[ext_resource type="Script" path="res://src/ui/menus/victory_menu.gd" id="1_vitoria"]
+[ext_resource type="Texture2D" uid="uid://b4v02aknlkx3n" path="res://assets/images/menu_bg.png" id="2_fundo"]
+[ext_resource type="FontFile" uid="uid://b7n2hanj6p4ov" path="res://assets/fonts/Perfect DOS VGA 437.ttf" id="3_font"]
+[ext_resource type="AudioStream" path="res://assets/Soundtrack/Som iniciar.mp3" id="4_audio"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_normal"]
+bg_color = Color(0, 0, 0, 0.4)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.117647, 0.823529, 0.607843, 0.8)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_top = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
+bg_color = Color(0.117647, 0.823529, 0.607843, 0.2)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.117647, 0.823529, 0.607843, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_top = 4.0
+expand_margin_bottom = 4.0
+
+[node name="victory_menu" type="Control" unique_id=881239120]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vitoria")
+
+[node name="fundo_vitoria" type="TextureRect" parent="." unique_id=958560177]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_fundo")
+expand_mode = 2
+self_modulate = Color(0.2, 0.85, 0.6, 1.0)
+
+[node name="LabelTitle" type="Label" parent="." unique_id=1023812301]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -500.0
+offset_top = 180.0
+offset_right = 500.0
+offset_bottom = 300.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.117647, 0.823529, 0.607843, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.7)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 72
+text = "MISSÃO COMPLETA"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelSub" type="Label" parent="." unique_id=1023812302]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -500.0
+offset_top = 280.0
+offset_right = 500.0
+offset_bottom = 340.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.9)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 28
+text = "A CONSCIÊNCIA FOI LIBERTADA"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelScore" type="Label" parent="." unique_id=1053199627]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -60.0
+offset_right = 400.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 1.0, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 32
+text = "SCORE: 0 INIMIGOS DESTRUIDOS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="jogar_novamente" type="Button" parent="." unique_id=1982548766]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = 80.0
+offset_right = 300.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "JOGAR NOVAMENTE"
+
+[node name="menu" type="Button" parent="." unique_id=1708367870]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = 190.0
+offset_right = 300.0
+offset_bottom = 270.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "MENU PRINCIPAL"
+
+[node name="sair" type="Button" parent="." unique_id=1765611597]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = 300.0
+offset_right = 300.0
+offset_bottom = 380.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "SAIR DO JOGO"
+
+[node name="Som_vitoria" type="AudioStreamPlayer" parent="." unique_id=708032361]
+stream = ExtResource("4_audio")
+volume_db = -10.0
+autoplay = true
+
+[connection signal="pressed" from="jogar_novamente" to="." method="_on_jogar_novamente_pressed"]
+[connection signal="pressed" from="menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="sair" to="." method="_on_sair_pressed"]
