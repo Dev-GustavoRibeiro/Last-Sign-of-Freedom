@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bj7qixsf0i76n" path="res://src/ui/menus/game_over.gd" id="1_ccer4"]
 [ext_resource type="Texture2D" uid="uid://bt8h86jtc1ta1" path="res://assets/images/game_over.png" id="2_ccer4"]
-[ext_resource type="AudioStream" uid="uid://da2myeeifes18" path="res://assets/Soundtrack/Som game over.mp3" id="4_8u835"]
+[ext_resource type="AudioStream" uid="uid://da2myeeifes18" path="res://assets/Soundtrack/game_over_music.mp3" id="4_8u835"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8u835"]
 bg_color = Color(0, 0, 0, 0.4)
@@ -74,7 +74,7 @@ offset_bottom = 853.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_8u835")
 theme_override_styles/hover = SubResource("StyleBoxFlat_k2vha")
 
-[node name="Som_gameover" type="AudioStreamPlayer" parent="." unique_id=708032360]
+[node name="game_over_music_player" type="AudioStreamPlayer" parent="." unique_id=708032360]
 stream = ExtResource("4_8u835")
 volume_db = -10.0
 autoplay = true

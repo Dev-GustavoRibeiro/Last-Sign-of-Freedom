@@ -5,13 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://cinfx7aoufrf6" path="res://src/objects/collectibles/coin.tscn" id="7_2hh7m"]
 [ext_resource type="FontFile" uid="uid://b7n2hanj6p4ov" path="res://assets/fonts/Perfect DOS VGA 437.ttf" id="7_t8jxu"]
 [ext_resource type="Texture2D" uid="uid://bgp3tsevq6hav" path="res://assets/bullet/ammo.png" id="8_pfhxm"]
-[ext_resource type="Texture2D" uid="uid://daghugvsqoqf4" path="res://assets/bullet/Relogio.png" id="8_pij3u"]
+[ext_resource type="Texture2D" uid="uid://daghugvsqoqf4" path="res://assets/bullet/clock.png" id="8_pij3u"]
 [ext_resource type="PackedScene" uid="uid://w1qaufyhg8mo" path="res://src/ui/menus/pause_menu.tscn" id="9_pfhxm"]
-[ext_resource type="AudioStream" uid="uid://bl2ca26ltd2j0" path="res://assets/Soundtrack/Som fundo.mp3" id="9_pij3u"]
-[ext_resource type="Texture2D" uid="uid://8l5lx20snt53" path="res://assets/Background 1/cyberpunk-street-files/Assets/city skyline/Layers/back.png" id="10_0oi55"]
+[ext_resource type="AudioStream" uid="uid://bl2ca26ltd2j0" path="res://assets/Soundtrack/bg_music.mp3" id="9_pij3u"]
+[ext_resource type="Texture2D" uid="uid://8l5lx20snt53" path="res://assets/backgrounds/back.png" id="10_0oi55"]
 [ext_resource type="PackedScene" uid="uid://btkak6fulni13" path="res://src/entities/enemy/thug.tscn" id="10_pij3u"]
-[ext_resource type="Texture2D" uid="uid://06cq1a0cyydb" path="res://assets/Background 1/cyberpunk-street-files/Assets/city skyline/Layers/buildings.png" id="11_0oi55"]
-[ext_resource type="Texture2D" uid="uid://ejvaevbbxngf" path="res://assets/Background 1/cyberpunk-street-files/Assets/city skyline/Layers/front.png" id="12_57gmc"]
+[ext_resource type="Texture2D" uid="uid://06cq1a0cyydb" path="res://assets/backgrounds/buildings.png" id="11_0oi55"]
+[ext_resource type="Texture2D" uid="uid://ejvaevbbxngf" path="res://assets/backgrounds/front.png" id="12_57gmc"]
 [ext_resource type="Texture2D" uid="uid://c8nhq0c6jqwpy" path="res://assets/Tileset 1/1 Frames/FrameMap.png" id="13_0crsg"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2hh7m"]
@@ -577,7 +577,7 @@ position = Vector2(1557, 384)
 z_index = 1
 position = Vector2(3550, 373)
 
-[node name="som_fundo" type="AudioStreamPlayer" parent="." unique_id=1847378404]
+[node name="bg_music_player" type="AudioStreamPlayer" parent="." unique_id=1847378404]
 stream = ExtResource("9_pij3u")
 volume_db = -30.0
 autoplay = true

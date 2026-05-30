@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c1imk6ux5auu" path="res://src/ui/menus/pause_menu.gd" id="1_jd2x8"]
 [ext_resource type="Texture2D" uid="uid://7e8dubsgcg30" path="res://assets/images/pause_bg.png" id="2_3ml7n"]
-[ext_resource type="AudioStream" uid="uid://bv5vrmqsuego1" path="res://assets/Soundtrack/Som iniciar.mp3" id="3_tyo0u"]
+[ext_resource type="AudioStream" uid="uid://bv5vrmqsuego1" path="res://assets/Soundtrack/start_menu_music.mp3" id="3_tyo0u"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tyo0u"]
 bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0)
