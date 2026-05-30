@@ -240,7 +240,7 @@ position = Vector2(200, -68)
 zoom = Vector2(2, 2)
 limit_left = 0
 limit_top = -200
-limit_right = 2000
+limit_right = 4000
 limit_bottom = 550
 
 [node name="hurt" parent="." unique_id=1761511818 instance=ExtResource("4_s3elh")]

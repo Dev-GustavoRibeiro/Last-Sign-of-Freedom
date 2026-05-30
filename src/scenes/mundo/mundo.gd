@@ -15,11 +15,14 @@ func _ready() -> void:
 		rect_shape.size = Vector2(4200, 50)
 		collision_shape.position = Vector2(2000, 422)
 
-	# 2. Adjust player camera right limit to 4000
+	# 2. Adjust player camera limits to lock viewport vertically and eliminate empty bars
 	if personagem:
 		var camera = personagem.get_node_or_null("camera_personagem")
 		if camera and camera is Camera2D:
+			camera.limit_left = 0
+			camera.limit_top = -105
 			camera.limit_right = 4000
+			camera.limit_bottom = 435
 
 	# 3. Dynamic Visual Theme Shift for Level 2
 	if name == "fase2":
