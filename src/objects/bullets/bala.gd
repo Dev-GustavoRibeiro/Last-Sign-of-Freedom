@@ -33,7 +33,8 @@ func _on_body_entered(body):
 	if dono != null:
 
 		if body.is_in_group("player"):
-			print("ACERTOU O JOGADOR")
+			get_tree().change_scene_to_file("res://src/ui/menus/game_over.tscn")
+
 
 		queue_free()
 		return

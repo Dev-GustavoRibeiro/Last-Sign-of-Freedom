@@ -3,6 +3,8 @@ extends CharacterBody2D
 @onready var detector_colisao: RayCast2D = $detector_colisao
 @onready var animacao_esqueleto: AnimatedSprite2D = $animacao_esqueleto
 @onready var ponto_tiro: Marker2D = $PontoTiro
+@onready var timer: Timer = $Timer
+@onready var area_deteccao: Area2D = $Areadeteccao
 
 @export var bala_scene: PackedScene
 
@@ -11,6 +13,7 @@ var direction := 1
 
 var jogador: Node2D
 var jogador_detectado := false
+var morto := false
 
 func _ready():
 	jogador = get_tree().get_first_node_in_group("player")
@@ -52,7 +55,7 @@ func _physics_process(delta: float) -> void:
 
 func atirar():
 
-	if jogador == null:
+	if morto or jogador == null:
 		return
 
 	animacao_esqueleto.play("atirando")
@@ -61,19 +64,22 @@ func atirar():
 	bala.dono = self
 	bala.global_position = ponto_tiro.global_position
 
-	var direcao = (jogador.global_position - ponto_tiro.global_position).normalized()
-	bala.direcao = direcao
+	var direcao_x = sign(jogador.global_position.x - ponto_tiro.global_position.x)
+	if direcao_x == 0:
+		direcao_x = -1 if animacao_esqueleto.flip_h else 1
+
+	bala.direcao = Vector2(direcao_x, 0)
 
 	get_tree().current_scene.add_child(bala)
 
 func _on_timer_timeout() -> void:
 
-	if jogador_detectado:
+	if jogador_detectado and not morto:
 		atirar()
 
 func _on_areadeteccao_body_entered(body: Node2D) -> void:
 
-	if body.is_in_group("player"):
+	if body.is_in_group("player") and not morto:
 		jogador_detectado = true
 
 func _on_areadeteccao_body_exited(body: Node2D) -> void:
@@ -88,12 +94,22 @@ func _on_animacao_esqueleto_animation_finished() -> void:
 
 	elif animacao_esqueleto.animation == "atirando":
 
-		if jogador_detectado:
+		if morto:
+			return
+		elif jogador_detectado:
 			animacao_esqueleto.play("idle")
 		else:
 			animacao_esqueleto.play("andando")
 
 func morrer():
 
+	if morto:
+		return
+
+	morto = true
+	jogador_detectado = false
+	velocity = Vector2.ZERO
+	timer.stop()
+	area_deteccao.monitoring = false
 	animacao_esqueleto.play("morte")
 	set_physics_process(false)
