@@ -185,7 +185,7 @@ position = Vector2(55, -11)
 position = Vector2(27, 8)
 
 [node name="Timer" type="Timer" parent="." unique_id=1546689334]
-wait_time = 1.0
+wait_time = 1.3
 autostart = true
 
 [node name="Areadeteccao" type="Area2D" parent="." unique_id=958793012]

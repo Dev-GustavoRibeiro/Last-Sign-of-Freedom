@@ -1,6 +1,6 @@
 extends Area2D
 
-var speed = 400
+@export var speed = 400.0
 
 # Bala do jogador
 var direction = 1

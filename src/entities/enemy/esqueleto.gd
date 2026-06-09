@@ -7,9 +7,11 @@ extends CharacterBody2D
 @onready var area_deteccao: Area2D = $Areadeteccao
 
 @export var bala_scene: PackedScene
+@export var distancia_patrulha = 120.0
 
 const SPEED = 30.0
 var direction := 1
+var inicio_patrulha_x := 0.0
 
 var jogador: Node2D
 var jogador_detectado := false
@@ -17,6 +19,7 @@ var morto := false
 
 func _ready():
 	jogador = get_tree().get_first_node_in_group("player")
+	inicio_patrulha_x = global_position.x
 	animacao_esqueleto.play("andando")
 
 func _physics_process(delta: float) -> void:
@@ -41,10 +44,9 @@ func _physics_process(delta: float) -> void:
 	else:
 
 		# Patrulha
-		if detector_colisao.is_colliding():
-			direction *= -1
-			detector_colisao.scale.x *= -1
-			animacao_esqueleto.scale.x *= -1
+		var distancia_andada = abs(global_position.x - inicio_patrulha_x)
+		if distancia_andada >= distancia_patrulha or detector_colisao.is_colliding():
+			virar_patrulha()
 
 		velocity.x = direction * SPEED
 
@@ -52,6 +54,12 @@ func _physics_process(delta: float) -> void:
 			animacao_esqueleto.play("andando")
 
 	move_and_slide()
+
+func virar_patrulha():
+	direction *= -1
+	inicio_patrulha_x = global_position.x
+	detector_colisao.scale.x *= -1
+	animacao_esqueleto.scale.x *= -1
 
 func atirar():
 
