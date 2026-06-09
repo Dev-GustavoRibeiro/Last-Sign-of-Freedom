@@ -155,7 +155,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q6t52"]
-radius = 17.029387
+radius = 180.0
 
 [node name="esqueleto" type="CharacterBody2D" unique_id=414904559 groups=["inimigos"]]
 position = Vector2(0, 1)
@@ -185,13 +185,13 @@ position = Vector2(55, -11)
 position = Vector2(27, 8)
 
 [node name="Timer" type="Timer" parent="." unique_id=1546689334]
-wait_time = 2.0
+wait_time = 1.0
 autostart = true
 
 [node name="Areadeteccao" type="Area2D" parent="." unique_id=958793012]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areadeteccao" unique_id=1612167350]
-position = Vector2(0, -1)
+position = Vector2(55, 12)
 shape = SubResource("CircleShape2D_q6t52")
 
 [connection signal="animation_finished" from="animacao_esqueleto" to="." method="_on_animacao_esqueleto_animation_finished"]
