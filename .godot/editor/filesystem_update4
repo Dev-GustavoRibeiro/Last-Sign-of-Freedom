@@ -1,1 +1,4 @@
-res://menu_iniciar.tscn
+res://src/objects/bullets/bala.gd
+res://src/objects/bullets/bala.tscn
+res://src/objects/bullets/bala_inimigo.tscn
+res://src/entities/enemy/esqueleto.gd
