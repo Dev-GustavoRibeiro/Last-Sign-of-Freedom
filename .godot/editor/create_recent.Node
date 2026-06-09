@@ -1,8 +1,9 @@
-TileMapLayer
 AnimatedSprite2D
+CollisionShape2D
+CharacterBody2D
+TileMapLayer
 Sprite2D
 Parallax2D
-CollisionShape2D
 Area2D
 Timer
 Marker2D
@@ -11,5 +12,3 @@ Label
 Node2D
 CanvasLayer
 VisibleOnScreenNotifier2D
-CharacterBody2D
-StaticBody2D

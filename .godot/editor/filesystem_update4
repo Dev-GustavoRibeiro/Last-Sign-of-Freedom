@@ -1,1 +1,5 @@
-res://menu_iniciar.tscn
+res://src/objects/bullets/bala_inimigo.tscn
+res://src/entities/enemy/esqueleto.gd
+res://src/objects/collectibles/moeda.tscn
+res://src/entities/Boss/Boss.tscn
+res://src/scenes/mundo/mundo.tscn

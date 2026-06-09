@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbbfkgjc8hnro"
-path="res://.godot/imported/fundo_02.png-4b5fca1c312119bad72bb96dea94bbaf.ctex"
+uid="uid://bdy2otygjhl6d"
+path="res://.godot/imported/Yellow_Sparkle (16 x 16).png-e9ed98dfe66f909e17cd8d95664d47cc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/menu/fundo_02.png"
-dest_files=["res://.godot/imported/fundo_02.png-4b5fca1c312119bad72bb96dea94bbaf.ctex"]
+source_file="res://assets/Bullet/Yellow_Sparkle (16 x 16).png"
+dest_files=["res://.godot/imported/Yellow_Sparkle (16 x 16).png-e9ed98dfe66f909e17cd8d95664d47cc.ctex"]
 
 [params]
 
