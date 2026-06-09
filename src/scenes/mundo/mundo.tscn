@@ -807,23 +807,23 @@ visible = false
 
 [node name="esqueleto" parent="." unique_id=414904559 groups=["inimigo"] instance=ExtResource("10_pij3u")]
 z_index = 1
-position = Vector2(1126, 353)
+position = Vector2(572, 84)
 
 [node name="esqueleto2" parent="." unique_id=1788246312 groups=["inimigo"] instance=ExtResource("10_pij3u")]
 z_index = 1
-position = Vector2(1508, 379)
+position = Vector2(844, 171)
 
 [node name="esqueleto3" parent="." unique_id=1039403348 groups=["inimigo"] instance=ExtResource("10_pij3u")]
 z_index = 1
-position = Vector2(1772, 390)
+position = Vector2(1317, 173)
 
 [node name="esqueleto5" parent="." unique_id=228159805 groups=["inimigo"] instance=ExtResource("10_pij3u")]
 z_index = 1
-position = Vector2(2473, 393)
+position = Vector2(2170, -44)
 
 [node name="esqueleto4" parent="." unique_id=669051192 groups=["inimigo"] instance=ExtResource("10_pij3u")]
 z_index = 1
-position = Vector2(2161, 402)
+position = Vector2(1629, 205)
 
 [node name="som_fundo" type="AudioStreamPlayer" parent="." unique_id=1847378404]
 stream = ExtResource("9_pij3u")
