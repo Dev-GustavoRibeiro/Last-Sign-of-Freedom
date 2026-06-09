@@ -7,6 +7,7 @@ extends CharacterBody2D
 @onready var marker_right = $MarkerRight
 @onready var marker_left = $MarkerLeft
 @onready var tempo_label = $"../CanvasLayer/TempoLabel"
+@export var limite_queda_y = 900.0
 
 const SPEED = 130.0
 const JUMP_VELOCITY = -370.0
@@ -15,8 +16,12 @@ var tempo = 0.0
 var atirando = false
 var municao_maxima = 12
 var municao_atual = 12
+var morto = false
 
 func _physics_process(delta: float) -> void:
+	if morto:
+		return
+
 	tempo += delta
 	var minutos = int(tempo / 60)
 	var segundos = int(tempo) % 60
@@ -66,6 +71,9 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
+	if global_position.y > limite_queda_y:
+		morrer()
+
 func adicionar_municao(valor):
 
 	municao_atual += valor
@@ -84,6 +92,8 @@ func _ready():
 	atualizar_municao()
 	
 func atirar():
+	if morto:
+		return
 
 	atirando = true
 	municao_atual -= 1
@@ -109,3 +119,12 @@ func atirar():
 	await animacao_personagem.animation_finished
 
 	atirando = false
+
+func morrer():
+	if morto:
+		return
+
+	morto = true
+	var erro := get_tree().change_scene_to_file("res://src/ui/menus/game_over.tscn")
+	if erro != OK:
+		push_error("Erro ao carregar a cena de game over: " + str(erro))
