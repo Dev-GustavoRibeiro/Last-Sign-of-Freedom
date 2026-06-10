@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://ba7do66ioo60g" path="res://src/entities/enemy/esqueleto.gd" id="1_lrdmc"]
 [ext_resource type="PackedScene" uid="uid://b1xeheg0vesqd" path="res://src/objects/bullets/bala_inimigo.tscn" id="2_q6t52"]
-[ext_resource type="Texture2D" uid="uid://dh4hbwi6fx0pa" path="res://assets/Soldado.png" id="2_qahio"]
-[ext_resource type="Texture2D" uid="uid://bv7k730250kpr" path="res://assets/soldado morto.png" id="3_qahio"]
+[ext_resource type="Texture2D" uid="uid://dh4hbwi6fx0pa" path="res://assets/Inimigo 1/Soldado.png" id="2_qahio"]
+[ext_resource type="Texture2D" uid="uid://bv7k730250kpr" path="res://assets/Inimigo 1/soldado morto.png" id="3_qahio"]
 [ext_resource type="PackedScene" uid="uid://lx8y66krn3q4" path="res://src/components/hitbox/hitbox.tscn" id="4_qahio"]
-[ext_resource type="Texture2D" uid="uid://ca3s26gabn75h" path="res://assets/Soldado atirando.png" id="4_w7kkk"]
-[ext_resource type="Texture2D" uid="uid://c3lbjpqv85lf1" path="res://assets/soldado idle.png" id="5_bvepm"]
+[ext_resource type="Texture2D" uid="uid://ca3s26gabn75h" path="res://assets/Inimigo 1/Soldado atirando.png" id="4_w7kkk"]
+[ext_resource type="Texture2D" uid="uid://c3lbjpqv85lf1" path="res://assets/Inimigo 1/soldado idle.png" id="5_bvepm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m5oya"]
 radius = 9.0
@@ -180,6 +180,8 @@ target_position = Vector2(13, 1)
 
 [node name="hitbox" parent="." unique_id=1690650679 groups=["inimigos"] instance=ExtResource("4_qahio")]
 position = Vector2(55, -11)
+monitoring = false
+monitorable = false
 
 [node name="PontoTiro" type="Marker2D" parent="." unique_id=359890983]
 position = Vector2(27, 8)

@@ -53,7 +53,11 @@ func _physics_process(delta: float) -> void:
 		if animacao_esqueleto.animation != "andando":
 			animacao_esqueleto.play("andando")
 
-	move_and_slide()
+		move_and_slide()
+
+
+	
+	
 
 func virar_patrulha():
 	direction *= -1

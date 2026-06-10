@@ -1,1 +1,6 @@
-res://src/scenes/mundo/mundo.tscn
+res://src/entities/enemy/esqueleto.tscn
+res://src/components/hitbox/hitbox.tscn
+res://src/components/hurtbox/hurt.tscn
+res://src/entities/enemy/esqueleto.gd
+res://src/entities/player/personagem.tscn
+res://src/components/hitbox/hitbox.gd
