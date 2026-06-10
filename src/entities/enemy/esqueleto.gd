@@ -10,9 +10,13 @@ extends CharacterBody2D
 @export var distancia_patrulha = 120.0
 
 const SPEED = 30.0
+const ESCALA_POR_ANIMACAO := {
+	"idle": 1.9,
+}
+
 var direction := 1
 var inicio_patrulha_x := 0.0
-var escala_animacao_x := 1.0
+var escala_animacao_base := Vector2.ONE
 
 var jogador: Node2D
 var jogador_detectado := false
@@ -22,10 +26,9 @@ func _ready():
 	jogador = get_tree().get_first_node_in_group("player")
 	area_deteccao.collision_mask = 4
 	inicio_patrulha_x = global_position.x
-	escala_animacao_x = abs(animacao_esqueleto.scale.x)
-	animacao_esqueleto.scale.x = escala_animacao_x
+	escala_animacao_base = Vector2(abs(animacao_esqueleto.scale.x), abs(animacao_esqueleto.scale.y))
 	atualizar_lado_visual(direction)
-	animacao_esqueleto.play("andando")
+	tocar_animacao("andando")
 
 func _physics_process(delta: float) -> void:
 
@@ -45,8 +48,7 @@ func _physics_process(delta: float) -> void:
 
 		# Só toca idle se não estiver atirando ou morrendo
 		if animacao_esqueleto.animation != "atirando" and animacao_esqueleto.animation != "morte":
-			if animacao_esqueleto.animation != "idle":
-				animacao_esqueleto.play("idle")
+			tocar_animacao("idle")
 
 	else:
 
@@ -57,8 +59,7 @@ func _physics_process(delta: float) -> void:
 
 		velocity.x = direction * SPEED
 
-		if animacao_esqueleto.animation != "andando":
-			animacao_esqueleto.play("andando")
+		tocar_animacao("andando")
 
 	move_and_slide()
 
@@ -69,8 +70,18 @@ func virar_patrulha():
 	atualizar_lado_visual(direction)
 
 func atualizar_lado_visual(direcao_x):
-	animacao_esqueleto.scale.x = escala_animacao_x
 	animacao_esqueleto.flip_h = direcao_x < 0
+	aplicar_escala_animacao(animacao_esqueleto.animation)
+
+func aplicar_escala_animacao(nome_animacao):
+	var multiplicador = ESCALA_POR_ANIMACAO.get(String(nome_animacao), 1.0)
+	animacao_esqueleto.scale = escala_animacao_base * multiplicador
+
+func tocar_animacao(nome_animacao, reiniciar := false):
+	aplicar_escala_animacao(nome_animacao)
+
+	if reiniciar or animacao_esqueleto.animation != nome_animacao:
+		animacao_esqueleto.play(nome_animacao)
 
 func calcular_direcao_jogador():
 	var alvo = jogador
@@ -94,7 +105,7 @@ func atirar():
 		direcao_x = direction
 
 	atualizar_lado_visual(direcao_x)
-	animacao_esqueleto.play("atirando")
+	tocar_animacao("atirando", true)
 	bala.direcao = Vector2(direcao_x, 0)
 
 	get_tree().current_scene.add_child(bala)
@@ -124,9 +135,9 @@ func _on_animacao_esqueleto_animation_finished() -> void:
 		if morto:
 			return
 		elif jogador_detectado:
-			animacao_esqueleto.play("idle")
+			tocar_animacao("idle")
 		else:
-			animacao_esqueleto.play("andando")
+			tocar_animacao("andando")
 
 func morrer():
 
@@ -138,5 +149,5 @@ func morrer():
 	velocity = Vector2.ZERO
 	timer.stop()
 	area_deteccao.monitoring = false
-	animacao_esqueleto.play("morte")
+	tocar_animacao("morte")
 	set_physics_process(false)
