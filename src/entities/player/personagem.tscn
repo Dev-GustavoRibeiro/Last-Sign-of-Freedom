@@ -220,6 +220,7 @@ animations = [{
 [node name="personagem" type="CharacterBody2D" unique_id=1303658070 groups=["player"]]
 z_index = 1
 position = Vector2(-177, 200)
+collision_layer = 4
 script = ExtResource("1_k0c8s")
 bala_scene = ExtResource("2_p7k75")
 

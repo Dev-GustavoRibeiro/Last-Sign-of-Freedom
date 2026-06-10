@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cxp8bsal2hxmq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_60551"]
+radius = 47.0
+height = 110.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oyn3p"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="Boss" type="CharacterBody2D" unique_id=2113866081]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2095972985]
+position = Vector2(23, 7)
+shape = SubResource("CapsuleShape2D_60551")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=880473189]
+position = Vector2(16, 6.999999)
+scale = Vector2(0.38725272, 0.1939883)
+sprite_frames = SubResource("SpriteFrames_oyn3p")
+animation = &"Idle"
+autoplay = "Idle"

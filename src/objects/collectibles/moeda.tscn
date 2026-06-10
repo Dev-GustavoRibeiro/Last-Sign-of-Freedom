@@ -1,24 +1,28 @@
 [gd_scene format=3 uid="uid://cinfx7aoufrf6"]
 
 [ext_resource type="Script" uid="uid://dphf3x28dvtib" path="res://src/objects/collectibles/moeda.gd" id="1_jvmwt"]
-[ext_resource type="Texture2D" uid="uid://8h8bjk0tb5hb" path="res://assets/moeda/Yellow_Sparkle (16 x 16).png" id="2_bce4n"]
-[ext_resource type="Texture2D" uid="uid://cglbrtqwmuyel" path="res://assets/Bala/bala girando.png" id="3_bce4n"]
+[ext_resource type="Texture2D" uid="uid://bdy2otygjhl6d" path="res://assets/Bullet/Yellow_Sparkle (16 x 16).png" id="2_7b6n7"]
+[ext_resource type="Texture2D" uid="uid://cglbrtqwmuyel" path="res://assets/Bullet/bala girando.png" id="3_bce4n"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4x05f"]
-atlas = ExtResource("2_bce4n")
-region = Rect2(48, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_efdvd"]
+atlas = ExtResource("2_7b6n7")
+region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1kyoo"]
-atlas = ExtResource("2_bce4n")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_s81j4"]
-atlas = ExtResource("2_bce4n")
+[sub_resource type="AtlasTexture" id="AtlasTexture_dkbb2"]
+atlas = ExtResource("2_7b6n7")
 region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_n85yn"]
-atlas = ExtResource("2_bce4n")
-region = Rect2(0, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6yog"]
+atlas = ExtResource("2_7b6n7")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mivcp"]
+atlas = ExtResource("2_7b6n7")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mekhv"]
+atlas = ExtResource("2_7b6n7")
+region = Rect2(64, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kpn3i"]
 atlas = ExtResource("3_bce4n")
@@ -32,16 +36,19 @@ region = Rect2(297, 0, 99, 532)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4x05f")
+"texture": SubResource("AtlasTexture_efdvd")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1kyoo")
+"texture": SubResource("AtlasTexture_dkbb2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_s81j4")
+"texture": SubResource("AtlasTexture_o6yog")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_n85yn")
+"texture": SubResource("AtlasTexture_mivcp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mekhv")
 }],
 "loop": false,
 "name": &"captura",
@@ -63,6 +70,7 @@ animations = [{
 radius = 9.0
 
 [node name="Municao" type="Area2D" unique_id=1087857285]
+collision_mask = 4
 script = ExtResource("1_jvmwt")
 
 [node name="animacao-municao" type="AnimatedSprite2D" parent="." unique_id=1525142000]
