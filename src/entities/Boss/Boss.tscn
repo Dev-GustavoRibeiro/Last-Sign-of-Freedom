@@ -1,18 +1,118 @@
 [gd_scene format=3 uid="uid://cxp8bsal2hxmq"]
 
+[ext_resource type="Texture2D" uid="uid://omtmcejx31iv" path="res://assets/Boss/IDLE.png" id="1_wwl3d"]
+[ext_resource type="Texture2D" uid="uid://dt7577mxy5hcb" path="res://assets/Boss/boss_parado_sem_fundo_limpo.png" id="2_60551"]
+[ext_resource type="Script" uid="uid://rh6t2uq1li6k" path="res://src/entities/Boss/boss.gd" id="3_60551"]
+[ext_resource type="PackedScene" path="res://src/entities/Boss/boss_projetil.tscn" id="4_boss"]
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_60551"]
 radius = 47.0
 height = 110.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_60551"]
+atlas = ExtResource("1_wwl3d")
+region = Rect2(0, 0, 278, 941)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yhiil"]
+atlas = ExtResource("1_wwl3d")
+region = Rect2(278, 0, 278, 941)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aicej"]
+atlas = ExtResource("1_wwl3d")
+region = Rect2(556, 0, 278, 941)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2g0i8"]
+atlas = ExtResource("1_wwl3d")
+region = Rect2(834, 0, 278, 941)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_84e5j"]
+atlas = ExtResource("1_wwl3d")
+region = Rect2(1112, 0, 278, 941)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_god4g"]
+atlas = ExtResource("1_wwl3d")
+region = Rect2(1390, 0, 278, 941)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewx1d"]
+atlas = ExtResource("2_60551")
+region = Rect2(0, 0, 319, 821)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oyn3p"]
+atlas = ExtResource("2_60551")
+region = Rect2(319, 0, 319, 821)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qkqgh"]
+atlas = ExtResource("2_60551")
+region = Rect2(638, 0, 319, 821)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iq3ou"]
+atlas = ExtResource("2_60551")
+region = Rect2(957, 0, 319, 821)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kgswy"]
+atlas = ExtResource("2_60551")
+region = Rect2(1276, 0, 319, 821)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jucgt"]
+atlas = ExtResource("2_60551")
+region = Rect2(1595, 0, 319, 821)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_oyn3p"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60551")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yhiil")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aicej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2g0i8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_84e5j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_god4g")
+}],
 "loop": true,
-"name": &"Idle",
+"name": &"ataque",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ewx1d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oyn3p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qkqgh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iq3ou")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kgswy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jucgt")
+}],
+"loop": true,
+"name": &"idle",
 "speed": 5.0
 }]
 
-[node name="Boss" type="CharacterBody2D" unique_id=2113866081]
+[sub_resource type="CircleShape2D" id="CircleShape2D_ataque"]
+radius = 320.0
+
+[node name="Boss" type="CharacterBody2D" unique_id=2113866081 groups=["inimigos"]]
+collision_layer = 2
+script = ExtResource("3_60551")
+projetil_ataque_scene = ExtResource("4_boss")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2095972985]
 position = Vector2(23, 7)
@@ -22,5 +122,37 @@ shape = SubResource("CapsuleShape2D_60551")
 position = Vector2(16, 6.999999)
 scale = Vector2(0.38725272, 0.1939883)
 sprite_frames = SubResource("SpriteFrames_oyn3p")
-animation = &"Idle"
-autoplay = "Idle"
+animation = &"idle"
+autoplay = "idle"
+
+[node name="AreaAtaque" type="Area2D" parent="." unique_id=1237807881]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaAtaque" unique_id=312473993]
+position = Vector2(16, 7)
+shape = SubResource("CircleShape2D_ataque")
+
+[node name="AtaqueVisual" type="Node2D" parent="."]
+visible = false
+z_index = 3
+position = Vector2(66, 7)
+
+[node name="Brilho" type="Polygon2D" parent="AtaqueVisual"]
+color = Color(0.72028726, 0.18251404, 1, 0.38)
+polygon = PackedVector2Array(-18, -22, 18, -18, 34, 0, 18, 18, -18, 22, -2, 0)
+
+[node name="Lamina" type="Polygon2D" parent="AtaqueVisual"]
+color = Color(0.9690394, 0.8417208, 1, 0.78)
+polygon = PackedVector2Array(-5, -8, 20, -7, 36, 0, 20, 7, -5, 8, 7, 0)
+
+[node name="Rastro" type="Line2D" parent="AtaqueVisual"]
+points = PackedVector2Array(-18, -15, 30, 0, -18, 15)
+width = 3.0
+default_color = Color(0.32941177, 0.8627451, 1, 0.82)
+
+[node name="TempoAtaque" type="Timer" parent="." unique_id=560007629]
+wait_time = 1.2
+
+[connection signal="body_entered" from="AreaAtaque" to="." method="_on_area_ataque_body_entered"]
+[connection signal="body_exited" from="AreaAtaque" to="." method="_on_area_ataque_body_exited"]
+[connection signal="timeout" from="TempoAtaque" to="." method="_on_tempo_ataque_timeout"]
