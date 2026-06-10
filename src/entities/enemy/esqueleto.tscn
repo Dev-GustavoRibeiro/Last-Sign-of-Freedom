@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://b1xeheg0vesqd" path="res://src/objects/bullets/bala_inimigo.tscn" id="2_q6t52"]
 [ext_resource type="Texture2D" uid="uid://dh4hbwi6fx0pa" path="res://assets/Inimigo 1/Soldado.png" id="2_qahio"]
 [ext_resource type="Texture2D" uid="uid://bv7k730250kpr" path="res://assets/Inimigo 1/soldado morto.png" id="3_qahio"]
-[ext_resource type="Texture2D" uid="uid://bm7clm0frtgkj" path="res://assets/Inimigo 1/shooting 2 BG.png" id="4_fnbas"]
 [ext_resource type="PackedScene" uid="uid://lx8y66krn3q4" path="res://src/components/hitbox/hitbox.tscn" id="4_qahio"]
+[ext_resource type="Texture2D" uid="uid://ca3s26gabn75h" path="res://assets/Inimigo 1/Soldado atirando.png" id="4_w7kkk"]
 [ext_resource type="Texture2D" uid="uid://c3lbjpqv85lf1" path="res://assets/Inimigo 1/soldado idle.png" id="5_bvepm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m5oya"]
@@ -32,21 +32,17 @@ region = Rect2(921, 0, 307, 1024)
 atlas = ExtResource("2_qahio")
 region = Rect2(1228, 0, 307, 1024)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_fnbas"]
+atlas = ExtResource("4_w7kkk")
+region = Rect2(0, 0, 162, 532)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_q0x2k"]
-atlas = ExtResource("4_fnbas")
-region = Rect2(0, 0, 176, 288)
+atlas = ExtResource("4_w7kkk")
+region = Rect2(162, 0, 162, 532)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ukx2a"]
-atlas = ExtResource("4_fnbas")
-region = Rect2(176, 0, 176, 288)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_td1rt"]
-atlas = ExtResource("4_fnbas")
-region = Rect2(352, 0, 176, 288)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ek2y4"]
-atlas = ExtResource("4_fnbas")
-region = Rect2(528, 0, 176, 288)
+atlas = ExtResource("4_w7kkk")
+region = Rect2(324, 0, 162, 532)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ygcs7"]
 atlas = ExtResource("5_bvepm")
@@ -108,16 +104,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_fnbas")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_q0x2k")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ukx2a")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_td1rt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ek2y4")
 }],
 "loop": true,
 "name": &"atirando",
@@ -180,6 +173,7 @@ scale = Vector2(0.11191573, 0.08449935)
 sprite_frames = SubResource("SpriteFrames_4lvds")
 animation = &"atirando"
 autoplay = "andando"
+frame_progress = 0.34248447
 
 [node name="detector_colisao" type="RayCast2D" parent="." unique_id=1331970415 groups=["inimigos"]]
 position = Vector2(55, 11)
@@ -192,7 +186,7 @@ position = Vector2(55, -11)
 position = Vector2(27, 8)
 
 [node name="Timer" type="Timer" parent="." unique_id=1546689334]
-wait_time = 11.870999999999999
+wait_time = 11.871
 autostart = true
 
 [node name="Areadeteccao" type="Area2D" parent="." unique_id=958793012]

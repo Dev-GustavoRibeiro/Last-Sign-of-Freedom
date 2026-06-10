@@ -70,6 +70,7 @@ animations = [{
 radius = 9.0
 
 [node name="Municao" type="Area2D" unique_id=1087857285]
+collision_mask = 4
 script = ExtResource("1_jvmwt")
 
 [node name="animacao-municao" type="AnimatedSprite2D" parent="." unique_id=1525142000]
