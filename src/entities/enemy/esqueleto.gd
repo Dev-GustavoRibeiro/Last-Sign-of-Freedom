@@ -12,6 +12,7 @@ extends CharacterBody2D
 const SPEED = 30.0
 var direction := 1
 var inicio_patrulha_x := 0.0
+var escala_animacao_x := 1.0
 
 var jogador: Node2D
 var jogador_detectado := false
@@ -19,7 +20,11 @@ var morto := false
 
 func _ready():
 	jogador = get_tree().get_first_node_in_group("player")
+	area_deteccao.collision_mask = 4
 	inicio_patrulha_x = global_position.x
+	escala_animacao_x = abs(animacao_esqueleto.scale.x)
+	animacao_esqueleto.scale.x = escala_animacao_x
+	atualizar_lado_visual(direction)
 	animacao_esqueleto.play("andando")
 
 func _physics_process(delta: float) -> void:
@@ -34,7 +39,9 @@ func _physics_process(delta: float) -> void:
 
 		# Olha para o jogador
 		if jogador:
-			animacao_esqueleto.flip_h = jogador.global_position.x < global_position.x
+			var direcao_jogador = calcular_direcao_jogador()
+			if direcao_jogador != 0:
+				atualizar_lado_visual(direcao_jogador)
 
 		# Só toca idle se não estiver atirando ou morrendo
 		if animacao_esqueleto.animation != "atirando" and animacao_esqueleto.animation != "morte":
@@ -59,23 +66,35 @@ func virar_patrulha():
 	direction *= -1
 	inicio_patrulha_x = global_position.x
 	detector_colisao.scale.x *= -1
-	animacao_esqueleto.scale.x *= -1
+	atualizar_lado_visual(direction)
+
+func atualizar_lado_visual(direcao_x):
+	animacao_esqueleto.scale.x = escala_animacao_x
+	animacao_esqueleto.flip_h = direcao_x < 0
+
+func calcular_direcao_jogador():
+	var alvo = jogador
+	var colisao_jogador = jogador.get_node_or_null("colisao_personagem")
+	if colisao_jogador:
+		alvo = colisao_jogador
+
+	return sign(alvo.global_position.x - ponto_tiro.global_position.x)
 
 func atirar():
 
 	if morto or jogador == null:
 		return
 
-	animacao_esqueleto.play("atirando")
-
 	var bala = bala_scene.instantiate()
 	bala.dono = self
 	bala.global_position = ponto_tiro.global_position
 
-	var direcao_x = sign(jogador.global_position.x - ponto_tiro.global_position.x)
+	var direcao_x = calcular_direcao_jogador()
 	if direcao_x == 0:
-		direcao_x = -1 if animacao_esqueleto.flip_h else 1
+		direcao_x = direction
 
+	atualizar_lado_visual(direcao_x)
+	animacao_esqueleto.play("atirando")
 	bala.direcao = Vector2(direcao_x, 0)
 
 	get_tree().current_scene.add_child(bala)

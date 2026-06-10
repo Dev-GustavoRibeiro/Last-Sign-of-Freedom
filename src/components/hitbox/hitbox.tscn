@@ -11,5 +11,3 @@ script = ExtResource("1_orx6n")
 [node name="colisao_hit" type="CollisionShape2D" parent="." unique_id=805398728]
 position = Vector2(0, 9.5)
 shape = SubResource("RectangleShape2D_xrojb")
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
