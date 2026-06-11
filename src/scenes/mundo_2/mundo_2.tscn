@@ -908,7 +908,7 @@ region_enabled = true
 
 [node name="personagem" parent="." unique_id=1303658070 instance=ExtResource("2_t8jxu")]
 z_index = 2
-position = Vector2(2507, 280)
+position = Vector2(2508, 279)
 
 [node name="menu_pausa" parent="." unique_id=1429306329 instance=ExtResource("9_pfhxm")]
 visible = false

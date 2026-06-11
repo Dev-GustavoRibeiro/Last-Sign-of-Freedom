@@ -107,7 +107,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ataque"]
-radius = 320.0
+radius = 560.0
 
 [node name="Boss" type="CharacterBody2D" unique_id=2113866081 groups=["inimigos"]]
 collision_layer = 2
