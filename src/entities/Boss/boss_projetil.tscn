@@ -11,23 +11,42 @@ collision_mask = 4
 script = ExtResource("1_boss")
 
 [node name="Brilho" type="Polygon2D" parent="."]
-color = Color(0.49411765, 0.09411765, 1, 0.48)
-polygon = PackedVector2Array(-18, -22, 24, -18, 46, 0, 24, 18, -18, 22, -4, 0)
+color = Color(0.23921569, 0.78039217, 1, 0.26)
+polygon = PackedVector2Array(-34, -24, -12, -28, 22, -24, 52, -10, 66, 0, 52, 10, 22, 24, -12, 28, -34, 24, -10, 0)
+
+[node name="Halo" type="Polygon2D" parent="."]
+color = Color(0.6666667, 0.21176471, 1, 0.42)
+polygon = PackedVector2Array(-24, -16, 10, -20, 44, -14, 58, 0, 44, 14, 10, 20, -24, 16, -2, 0)
 
 [node name="Nucleo" type="Polygon2D" parent="."]
-color = Color(0.9137255, 0.85882354, 1, 0.92)
-polygon = PackedVector2Array(-9, -8, 24, -7, 40, 0, 24, 7, -9, 8, 5, 0)
+color = Color(0.99607843, 0.9647059, 1, 0.96)
+polygon = PackedVector2Array(-8, -8, 18, -10, 42, -6, 56, 0, 42, 6, 18, 10, -8, 8, 10, 0)
+
+[node name="Miolo" type="Polygon2D" parent="."]
+color = Color(0.46666667, 0.9411765, 1, 0.95)
+polygon = PackedVector2Array(8, -4, 28, -5, 42, 0, 28, 5, 8, 4, 16, 0)
+
+[node name="Anel" type="Line2D" parent="."]
+points = PackedVector2Array(-12, -10, -1, -15, 18, -12, 33, 0, 18, 12, -1, 15, -12, 10)
+width = 2.6
+default_color = Color(0.8784314, 0.49411765, 1, 0.9)
+closed = true
 
 [node name="Rastro" type="Line2D" parent="."]
-points = PackedVector2Array(-30, -13, -5, 0, -30, 13)
-width = 4.0
-default_color = Color(0.2627451, 0.87058824, 1, 0.8)
+points = PackedVector2Array(-48, -14, -24, -8, -4, 0, -24, 8, -48, 14)
+width = 4.2
+default_color = Color(0.20392157, 0.8352941, 1, 0.78)
+
+[node name="RastroInterno" type="Line2D" parent="."]
+points = PackedVector2Array(-42, -7, -12, 0, -42, 7)
+width = 2.0
+default_color = Color(0.972549, 0.972549, 1, 0.95)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_boss")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-rect = Rect2(-40, -28, 90, 56)
+rect = Rect2(-60, -36, 132, 72)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
