@@ -33,10 +33,8 @@ func _on_body_entered(body):
 	if dono != null:
 
 		if body.is_in_group("player"):
-			var erro := get_tree().change_scene_to_file("res://src/ui/menus/game_over.tscn")
-			if erro != OK:
-				push_error("Erro ao carregar a cena de game over: " + str(erro))
-
+			if body.has_method("morrer"):
+				body.morrer()
 
 		queue_free()
 		return

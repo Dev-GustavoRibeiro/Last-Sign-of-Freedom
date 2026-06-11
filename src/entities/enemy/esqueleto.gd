@@ -11,8 +11,14 @@ extends CharacterBody2D
 
 const SPEED = 30.0
 const ESCALA_POR_ANIMACAO := {
-	"idle": 1.9,
+	"andando": 1.1,
+	"atirando": 1.1,
+	"idle": 2.1,
+	"morte": 1.1,
 }
+const PONTO_TIRO_DIREITA := Vector2(83, 16)
+const PONTO_TIRO_ESQUERDA := Vector2(27, 16)
+const OFFSET_SAIDA_BALA = 0.0
 
 var direction := 1
 var inicio_patrulha_x := 0.0
@@ -23,6 +29,8 @@ var jogador_detectado := false
 var morto := false
 
 func _ready():
+	add_to_group("inimigos")
+	add_to_group("inimigo")
 	jogador = get_tree().get_first_node_in_group("player")
 	area_deteccao.collision_mask = 4
 	inicio_patrulha_x = global_position.x
@@ -59,6 +67,7 @@ func _physics_process(delta: float) -> void:
 
 		velocity.x = direction * SPEED
 
+		atualizar_lado_visual(direction)
 		tocar_animacao("andando")
 
 	move_and_slide()
@@ -71,6 +80,7 @@ func virar_patrulha():
 
 func atualizar_lado_visual(direcao_x):
 	animacao_esqueleto.flip_h = direcao_x < 0
+	ponto_tiro.position = PONTO_TIRO_ESQUERDA if direcao_x < 0 else PONTO_TIRO_DIREITA
 	aplicar_escala_animacao(animacao_esqueleto.animation)
 
 func aplicar_escala_animacao(nome_animacao):
@@ -89,16 +99,20 @@ func calcular_direcao_jogador():
 	if colisao_jogador:
 		alvo = colisao_jogador
 
-	return sign(alvo.global_position.x - ponto_tiro.global_position.x)
+	return sign(alvo.global_position.x - global_position.x)
+
+func calcular_posicao_alvo_jogador() -> Vector2:
+	var alvo = jogador
+	var colisao_jogador = jogador.get_node_or_null("colisao_personagem")
+	if colisao_jogador:
+		alvo = colisao_jogador
+
+	return alvo.global_position
 
 func atirar():
 
 	if morto or jogador == null:
 		return
-
-	var bala = bala_scene.instantiate()
-	bala.dono = self
-	bala.global_position = ponto_tiro.global_position
 
 	var direcao_x = calcular_direcao_jogador()
 	if direcao_x == 0:
@@ -106,7 +120,13 @@ func atirar():
 
 	atualizar_lado_visual(direcao_x)
 	tocar_animacao("atirando", true)
-	bala.direcao = Vector2(direcao_x, 0)
+
+	var bala = bala_scene.instantiate()
+	bala.dono = self
+	bala.direcao = (calcular_posicao_alvo_jogador() - ponto_tiro.global_position).normalized()
+	if bala.direcao == Vector2.ZERO:
+		bala.direcao = Vector2(direcao_x, 0)
+	bala.global_position = ponto_tiro.global_position + bala.direcao * OFFSET_SAIDA_BALA
 
 	get_tree().current_scene.add_child(bala)
 
@@ -122,8 +142,10 @@ func _on_areadeteccao_body_entered(body: Node2D) -> void:
 
 func _on_areadeteccao_body_exited(body: Node2D) -> void:
 
-	if body.is_in_group("player"):
+	if body.is_in_group("player") and not morto:
 		jogador_detectado = false
+		atualizar_lado_visual(direction)
+		tocar_animacao("andando")
 
 func _on_animacao_esqueleto_animation_finished() -> void:
 
@@ -145,6 +167,8 @@ func morrer():
 		return
 
 	morto = true
+	remove_from_group("inimigos")
+	remove_from_group("inimigo")
 	jogador_detectado = false
 	velocity = Vector2.ZERO
 	timer.stop()
