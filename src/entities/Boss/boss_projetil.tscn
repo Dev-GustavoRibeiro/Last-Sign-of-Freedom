@@ -1,0 +1,33 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://src/entities/Boss/boss_projetil.gd" id="1_boss"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_boss"]
+radius = 16.0
+
+[node name="BossProjetil" type="Area2D"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_boss")
+
+[node name="Brilho" type="Polygon2D" parent="."]
+color = Color(0.49411765, 0.09411765, 1, 0.48)
+polygon = PackedVector2Array(-18, -22, 24, -18, 46, 0, 24, 18, -18, 22, -4, 0)
+
+[node name="Nucleo" type="Polygon2D" parent="."]
+color = Color(0.9137255, 0.85882354, 1, 0.92)
+polygon = PackedVector2Array(-9, -8, 24, -7, 40, 0, 24, 7, -9, 8, 5, 0)
+
+[node name="Rastro" type="Line2D" parent="."]
+points = PackedVector2Array(-30, -13, -5, 0, -30, 13)
+width = 4.0
+default_color = Color(0.2627451, 0.87058824, 1, 0.8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_boss")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+rect = Rect2(-40, -28, 90, 56)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
