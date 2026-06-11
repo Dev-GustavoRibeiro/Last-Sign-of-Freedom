@@ -3,6 +3,9 @@ extends Node2D
 const TeleportTransition := preload("res://src/objects/door/teleport_transition.gd")
 
 @export_file("*.tscn") var next_scene_path := ""
+@export var next_scene_checkpoint_position := Vector2.ZERO
+@export var use_next_scene_checkpoint_position := false
+@export var mostrar_placa := true
 
 @onready var animacao: AnimatedSprite2D = $Animacao
 @onready var area: Area2D = $Area2D
@@ -15,7 +18,7 @@ var teleportando := false
 func _ready() -> void:
 	animacao.play("fechada")
 	area.body_entered.connect(_on_body_entered)
-	placa.visible = true
+	placa.visible = mostrar_placa
 	placa.text = "Elimine todos os inimigos"
 	verificar_ate_abrir()
 
@@ -56,6 +59,8 @@ func _on_body_entered(body: Node2D) -> void:
 		return
 
 	teleportando = true
+	Global.definir_checkpoint(next_scene_path, next_scene_checkpoint_position, use_next_scene_checkpoint_position)
+
 	var transicao := TeleportTransition.new()
 	get_tree().root.add_child(transicao)
 	transicao.start(body, next_scene_path)

@@ -10,7 +10,7 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_jogar_novamente_pressed() -> void:
-	get_tree().change_scene_to_file("res://src/scenes/mundo/mundo.tscn")
+	get_tree().change_scene_to_file(Global.checkpoint_scene_path)
 
 func _on_mennu_pressed() -> void:
 	get_tree().change_scene_to_file("res://src/ui/menus/menu_iniciar.tscn")

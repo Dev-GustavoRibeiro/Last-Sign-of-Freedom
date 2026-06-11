@@ -15,6 +15,7 @@ func start(body: Node2D, next_scene_path: String) -> void:
 	_painel.anchor_right = 1.0
 	_painel.anchor_bottom = 1.0
 	_painel.pivot_offset = get_viewport().get_visible_rect().size * 0.5
+	_painel.modulate.a = 0.0
 	add_child(_painel)
 
 	await _animar_saida(body)
@@ -74,18 +75,17 @@ func _criar_brilho(posicao: Vector2) -> Sprite2D:
 func _fechar_tela() -> void:
 	_painel.pivot_offset = get_viewport().get_visible_rect().size * 0.5
 	_painel.scale = Vector2.ONE
-	_painel.modulate.a = 1.0
+	_painel.modulate.a = 0.0
 
 	var tween := create_tween()
-	tween.tween_property(_painel, "scale", Vector2(0.02, 0.02), 0.28).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+	tween.tween_property(_painel, "modulate:a", 1.0, 0.24).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
 	await tween.finished
 
 func _abrir_tela() -> void:
 	_painel.pivot_offset = get_viewport().get_visible_rect().size * 0.5
-	_painel.scale = Vector2(0.02, 0.02)
+	_painel.scale = Vector2.ONE
 	_painel.modulate.a = 1.0
 
 	var tween := create_tween()
-	tween.tween_property(_painel, "scale", Vector2.ONE, 0.24).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-	tween.tween_property(_painel, "modulate:a", 0.0, 0.18)
+	tween.tween_property(_painel, "modulate:a", 0.0, 0.28).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	await tween.finished

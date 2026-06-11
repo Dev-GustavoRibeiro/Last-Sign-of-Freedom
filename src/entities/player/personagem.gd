@@ -90,6 +90,11 @@ func atualizar_municao():
 
 func _ready():
 	add_to_group("player")
+	var cena_atual := get_tree().current_scene.scene_file_path
+	if cena_atual == Global.CENA_FASE_1:
+		Global.resetar_checkpoint()
+	elif Global.checkpoint_tem_posicao and cena_atual == Global.checkpoint_scene_path:
+		global_position = Global.checkpoint_position
 	atualizar_municao()
 	
 func atirar():

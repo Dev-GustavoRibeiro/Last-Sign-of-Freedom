@@ -801,7 +801,7 @@ region_enabled = true
 
 [node name="personagem" parent="." unique_id=1303658070 instance=ExtResource("2_t8jxu")]
 z_index = 2
-position = Vector2(2184, 38)
+position = Vector2(-184, 251)
 
 [node name="menu_pausa" parent="." unique_id=1429306329 instance=ExtResource("9_pfhxm")]
 visible = false
@@ -832,6 +832,8 @@ position = Vector2(937, 166)
 [node name="PortaFinal" parent="." unique_id=1185305876 instance=ExtResource("11_door")]
 position = Vector2(2735, 183)
 next_scene_path = "res://src/scenes/mundo_2/mundo_2.tscn"
+next_scene_checkpoint_position = Vector2(-185, 253)
+use_next_scene_checkpoint_position = true
 
 [node name="som_fundo" type="AudioStreamPlayer" parent="." unique_id=1847378404]
 stream = ExtResource("9_pij3u")

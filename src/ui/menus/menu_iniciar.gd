@@ -13,6 +13,7 @@ func _process(_delta: float) -> void:
 
 func _on_iniciar_pressed() -> void:
 	$som_inicio.stop()
+	Global.resetar_checkpoint()
 	get_tree().change_scene_to_file("res://src/scenes/mundo/mundo.tscn")
 
 
