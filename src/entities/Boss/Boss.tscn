@@ -107,7 +107,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ataque"]
-radius = 320.0
+radius = 560.0
 
 [node name="Boss" type="CharacterBody2D" unique_id=2113866081 groups=["inimigos"]]
 collision_layer = 2
@@ -138,17 +138,70 @@ z_index = 3
 position = Vector2(66, 7)
 
 [node name="Brilho" type="Polygon2D" parent="AtaqueVisual"]
-color = Color(0.72028726, 0.18251404, 1, 0.38)
-polygon = PackedVector2Array(-18, -22, 18, -18, 34, 0, 18, 18, -18, 22, -2, 0)
+color = Color(0.25882354, 0.81960785, 1, 0.18)
+polygon = PackedVector2Array(-28, -28, -4, -26, 28, -20, 48, -8, 60, 0, 48, 8, 28, 20, -4, 26, -28, 28, -10, 0)
+
+[node name="Halo" type="Polygon2D" parent="AtaqueVisual"]
+color = Color(0.7137255, 0.25882354, 1, 0.34)
+polygon = PackedVector2Array(-18, -18, 18, -16, 44, -6, 56, 0, 44, 6, 18, 16, -18, 18, 0, 0)
 
 [node name="Lamina" type="Polygon2D" parent="AtaqueVisual"]
-color = Color(0.9690394, 0.8417208, 1, 0.78)
-polygon = PackedVector2Array(-5, -8, 20, -7, 36, 0, 20, 7, -5, 8, 7, 0)
+color = Color(0.99607843, 0.95686275, 1, 0.88)
+polygon = PackedVector2Array(-6, -9, 20, -10, 42, -3, 56, 0, 42, 3, 20, 10, -6, 9, 8, 0)
+
+[node name="Nucleo" type="Polygon2D" parent="AtaqueVisual"]
+color = Color(0.5058824, 0.9529412, 1, 0.92)
+polygon = PackedVector2Array(6, -4, 26, -4, 40, 0, 26, 4, 6, 4, 14, 0)
 
 [node name="Rastro" type="Line2D" parent="AtaqueVisual"]
-points = PackedVector2Array(-18, -15, 30, 0, -18, 15)
-width = 3.0
+points = PackedVector2Array(-34, -16, -10, -10, 20, 0, -10, 10, -34, 16)
+width = 3.4
 default_color = Color(0.32941177, 0.8627451, 1, 0.82)
+
+[node name="RastroInterno" type="Line2D" parent="AtaqueVisual"]
+points = PackedVector2Array(-28, -7, 4, 0, -28, 7)
+width = 1.8
+default_color = Color(1, 1, 1, 0.92)
+
+[node name="ExplosaoVisual" type="Node2D" parent="."]
+visible = false
+z_index = 5
+position = Vector2(18, 0)
+
+[node name="Flash" type="Polygon2D" parent="ExplosaoVisual"]
+color = Color(1, 0.9843137, 0.92156863, 0.88)
+polygon = PackedVector2Array(-28, -84, 0, -32, 28, -84, 32, -20, 92, -28, 48, 0, 92, 28, 32, 20, 28, 84, 0, 32, -28, 84, -32, 20, -92, 28, -48, 0, -92, -28, -32, -20)
+
+[node name="AnelExterno" type="Line2D" parent="ExplosaoVisual"]
+points = PackedVector2Array(-66, -18, -46, -52, 0, -70, 48, -50, 68, -4, 50, 42, 4, 62, -42, 50, -64, 10)
+width = 8.0
+default_color = Color(1, 0.44705883, 0.80784315, 0.82)
+closed = true
+
+[node name="AnelInterno" type="Line2D" parent="ExplosaoVisual"]
+points = PackedVector2Array(-36, -10, -24, -28, 0, -40, 28, -26, 40, 0, 26, 24, 0, 34, -28, 24, -40, 0)
+width = 10.0
+default_color = Color(0.44705883, 0.9529412, 1, 0.9)
+closed = true
+
+[node name="NucleoExplosao" type="Polygon2D" parent="ExplosaoVisual"]
+color = Color(1, 0.87058824, 0.54509807, 0.92)
+polygon = PackedVector2Array(-14, -24, 12, -22, 26, -4, 18, 18, -6, 26, -24, 8, -26, -8)
+
+[node name="EstilhaçoA" type="Line2D" parent="ExplosaoVisual"]
+points = PackedVector2Array(-12, -8, -74, -68)
+width = 5.0
+default_color = Color(0.5254902, 0.95686275, 1, 0.9)
+
+[node name="EstilhaçoB" type="Line2D" parent="ExplosaoVisual"]
+points = PackedVector2Array(6, -6, 78, -42)
+width = 5.0
+default_color = Color(1, 0.47058824, 0.78039217, 0.9)
+
+[node name="EstilhaçoC" type="Line2D" parent="ExplosaoVisual"]
+points = PackedVector2Array(-4, 6, 34, 84)
+width = 5.0
+default_color = Color(1, 0.8862745, 0.5568628, 0.9)
 
 [node name="TempoAtaque" type="Timer" parent="." unique_id=560007629]
 wait_time = 1.2

@@ -1,1 +1,3 @@
-res://src/scenes/mundo_2/mundo_2.tscn
+res://src/entities/Boss/boss.gd
+res://src/entities/Boss/boss_projetil.gd
+res://src/ui/menus/vitoria.gd
