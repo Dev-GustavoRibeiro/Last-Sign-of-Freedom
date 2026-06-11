@@ -251,5 +251,5 @@ position = Vector2(224, -69)
 scale = Vector2(1, 0.99999994)
 
 [node name="MarkerLeft" type="Marker2D" parent="." unique_id=346984663]
-position = Vector2(180, -69)
+position = Vector2(160, -69)
 scale = Vector2(1, 0.99999994)

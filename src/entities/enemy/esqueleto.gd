@@ -18,7 +18,7 @@ const ESCALA_POR_ANIMACAO := {
 }
 const PONTO_TIRO_DIREITA := Vector2(83, 16)
 const PONTO_TIRO_ESQUERDA := Vector2(27, 16)
-const OFFSET_SAIDA_BALA = 18.0
+const OFFSET_SAIDA_BALA = 0.0
 
 var direction := 1
 var inicio_patrulha_x := 0.0
@@ -29,6 +29,8 @@ var jogador_detectado := false
 var morto := false
 
 func _ready():
+	add_to_group("inimigos")
+	add_to_group("inimigo")
 	jogador = get_tree().get_first_node_in_group("player")
 	area_deteccao.collision_mask = 4
 	inicio_patrulha_x = global_position.x
@@ -165,6 +167,8 @@ func morrer():
 		return
 
 	morto = true
+	remove_from_group("inimigos")
+	remove_from_group("inimigo")
 	jogador_detectado = false
 	velocity = Vector2.ZERO
 	timer.stop()
