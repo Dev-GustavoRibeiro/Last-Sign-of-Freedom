@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://h33nc7yimasg" path="res://src/entities/player/personagem.gd" id="1_k0c8s"]
 [ext_resource type="PackedScene" uid="uid://dfl63ukevmdxm" path="res://src/objects/bullets/bala.tscn" id="2_p7k75"]
-[ext_resource type="Texture2D" uid="uid://dicjewjbh3viq" path="res://assets/Personagem/IDLE.png" id="2_s3elh"]
-[ext_resource type="Texture2D" uid="uid://dc27ydkky4drh" path="res://assets/Personagem/Jump.png" id="3_114o1"]
+[ext_resource type="Texture2D" uid="uid://dicjewjbh3viq" path="res://assets/Character/IDLE.png" id="2_s3elh"]
+[ext_resource type="Texture2D" uid="uid://dc27ydkky4drh" path="res://assets/Character/Jump.png" id="3_114o1"]
 [ext_resource type="PackedScene" uid="uid://ymv042ma3c0o" path="res://src/components/hurtbox/hurt.tscn" id="4_s3elh"]
-[ext_resource type="Texture2D" uid="uid://cnp1pgjidngfu" path="res://assets/Personagem/run_mesmo_tamanho_idle_sem_borrado.png" id="5_p7k75"]
-[ext_resource type="Texture2D" uid="uid://dvhv105vudnbw" path="res://assets/Personagem/shoot 3.png" id="6_p7k75"]
+[ext_resource type="Texture2D" uid="uid://cnp1pgjidngfu" path="res://assets/Character/run_mesmo_tamanho_idle_sem_borrado.png" id="5_p7k75"]
+[ext_resource type="Texture2D" uid="uid://dvhv105vudnbw" path="res://assets/Character/shoot 3.png" id="6_p7k75"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lgngo"]
 radius = 8.0

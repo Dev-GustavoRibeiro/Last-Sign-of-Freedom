@@ -11,6 +11,7 @@ extends CharacterBody2D
 
 const SPEED = 130.0
 const JUMP_VELOCITY = -370.0
+const OFFSET_SAIDA_BALA = 18.0
 
 var tempo = 0.0
 var atirando = false
@@ -95,26 +96,24 @@ func atirar():
 	if morto:
 		return
 
+	var posicao_mouse = get_global_mouse_position()
+	var marker_tiro = marker_right if posicao_mouse.x >= global_position.x else marker_left
+	var direcao_tiro = posicao_mouse - marker_tiro.global_position
+	if direcao_tiro == Vector2.ZERO:
+		direcao_tiro = Vector2.RIGHT if animacao_personagem.flip_h else Vector2.LEFT
+
 	atirando = true
 	municao_atual -= 1
 	atualizar_municao()
 
+	animacao_personagem.flip_h = direcao_tiro.x >= 0
 	animacao_personagem.play("shoot")
 	animacao_personagem.frame = 0
 
 	var bala = bala_scene.instantiate()
-
+	bala.direcao = direcao_tiro.normalized()
+	bala.global_position = marker_tiro.global_position + bala.direcao * OFFSET_SAIDA_BALA
 	get_parent().add_child(bala)
-
-	if animacao_personagem.flip_h:
-		bala.global_position = marker_right.global_position
-	else:
-		bala.global_position = marker_left.global_position
-
-	if animacao_personagem.flip_h:
-		bala.direction = 1
-	else:
-		bala.direction = -1
 
 	await animacao_personagem.animation_finished
 
