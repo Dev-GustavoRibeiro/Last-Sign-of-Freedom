@@ -1,8 +1,9 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1781211779
+::res://::1781278255
 icon.svg::CompressedTexture2D::4750890269006481903::1780967101::1781035247::1::::<><><>0<>0<>37bc7ccfce3e2eb5ff5731ee2ab6458e<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 README.md::TextFile::-1::1780967100::0::1::::<><><>0<>0<><>::
-::res://assets/::1781208883
+::res://assets/::1781278127
+Tela_de_vitoria.png::CompressedTexture2D::8909844062250813040::1781278127::1781278256::1::::<><><>0<>0<>6f926f4e60d54795b6b4ba19e2035ddf<>res://.godot/imported/Tela_de_vitoria.png-1262e17e55bda321d1844169c4613380.ctex::
 ::res://assets/Background 1/::1780967100
 ::res://assets/Background 1/cyberpunk-street-files/::1780967100
 ::res://assets/Background 1/cyberpunk-street-files/Assets/::1780967100
@@ -654,9 +655,9 @@ hurt.gd::GDScript::8780183577049260535::1781123955::0::1::::<>Area2D<><>0<>0<><>
 hurt.tscn::PackedScene::1710626047490414856::1781123955::0::1::::<><><>0<>0<><>::uid://dxdglt4nhmlp4::::res://src/components/hurtbox/hurt.gd
 ::res://src/entities/::1781123955
 ::res://src/entities/Boss/::1781209544
-boss.gd::GDScript::1209578592773618752::1781211613::0::1::::<>CharacterBody2D<><>0<>0<><>::
-Boss.tscn::PackedScene::6420156829883517260::1781211671::0::1::::<><><>0<>0<><>::uid://omtmcejx31iv::::res://assets/Boss/IDLE.png<>uid://dt7577mxy5hcb::::res://assets/Boss/boss_parado_sem_fundo_limpo.png<>uid://rh6t2uq1li6k::::res://src/entities/Boss/boss.gd<>res://src/entities/Boss/boss_projetil.tscn
-boss_projetil.gd::GDScript::1211476815877755440::1781211626::0::1::::<>Area2D<><>0<>0<><>::
+boss.gd::GDScript::1209578592773618752::1781212714::0::1::::<>CharacterBody2D<><>0<>0<><>::
+Boss.tscn::PackedScene::6420156829883517260::1781212738::0::1::::<><><>0<>0<><>::uid://omtmcejx31iv::::res://assets/Boss/IDLE.png<>uid://dt7577mxy5hcb::::res://assets/Boss/boss_parado_sem_fundo_limpo.png<>uid://rh6t2uq1li6k::::res://src/entities/Boss/boss.gd<>res://src/entities/Boss/boss_projetil.tscn
+boss_projetil.gd::GDScript::1211476815877755440::1781212356::0::1::::<>Area2D<><>0<>0<><>::
 boss_projetil.tscn::PackedScene::-1::1781211648::0::1::::<><><>0<>0<><>::res://src/entities/Boss/boss_projetil.gd
 ::res://src/entities/enemy/::1781128582
 esqueleto.gd::GDScript::2452689600411552228::1781139153::0::1::::<>CharacterBody2D<><>0<>0<><>::
@@ -692,7 +693,7 @@ global.gd::GDScript::7548293011601418467::1781141469::0::1::::<>Node<><>0<>0<><>
 ::res://src/ui/hud/::1780967101
 controle.gd::GDScript::406875664220145044::1780967101::0::1::::<>Control<><>0<>0<><>::
 hud.tscn::PackedScene::7855954623661305346::1780967101::0::1::::<><><>0<>0<><>::uid://f2dghit7sjlk::::res://src/ui/hud/controle.gd<>uid://cs8b2qdc13bhl::::res://assets/moeda/Coin.png
-::res://src/ui/menus/::1781142778
+::res://src/ui/menus/::1781278127
 game_over.gd::GDScript::3085167358905278747::1781141488::0::1::::<>Control<><>0<>0<><>::
 game_over.tscn::PackedScene::6347264511016852313::1781142729::0::1::::<><><>0<>0<><>::uid://bj7qixsf0i76n::::res://src/ui/menus/game_over.gd<>uid://bt8h86jtc1ta1::::res://assets/Imagens/game_over.png<>uid://da2myeeifes18::::res://assets/Musicas/Som game over.mp3<>res://src/ui/menus/menu_button_effect.gd
 menu_button_effect.gd::GDScript::6306328065543505642::1781142767::0::1::::<>Button<><>0<>0<><>::
@@ -700,3 +701,5 @@ menu_iniciar.gd::GDScript::4585046725964103829::1781141532::0::1::::<>Control<><
 menu_iniciar.tscn::PackedScene::8043571490036551374::1781142706::0::1::::<><><>0<>0<><>::uid://b6lbbxpeo28tt::::res://src/ui/menus/menu_iniciar.gd<>uid://b4v02aknlkx3n::::res://assets/Imagens/tela_inicio.png<>uid://k4wwyv65uo57::::res://assets/Imagens/logo_geral.png<>res://assets/Musicas/Som iniciar.mp3<>res://src/ui/menus/menu_button_effect.gd
 menu_pausa.gd::GDScript::194559248413671772::1780967101::0::1::::<>CanvasLayer<><>0<>0<><>::
 menu_pausa.tscn::PackedScene::1598800912817633930::1781142717::0::1::::<><><>0<>0<><>::uid://c1imk6ux5auu::::res://src/ui/menus/menu_pausa.gd<>uid://7e8dubsgcg30::::res://assets/Imagens/tela_pause.png<>uid://bv5vrmqsuego1::::res://assets/Musicas/Som iniciar.mp3<>res://src/ui/menus/menu_button_effect.gd
+vitoria.gd::GDScript::1257927347467560880::1781213102::0::1::::<>Control<><>0<>0<><>::
+vitoria.tscn::PackedScene::-1::1781278127::0::1::::<><><>0<>0<><>::res://src/ui/menus/vitoria.gd<>res://src/ui/menus/menu_button_effect.gd<>res://assets/Tela_de_vitoria.png<>res://assets/Soundtrack/Som iniciar.mp3
