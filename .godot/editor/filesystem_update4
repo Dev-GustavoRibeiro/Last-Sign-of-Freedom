@@ -1,3 +1,6 @@
-res://src/entities/Boss/boss.gd
-res://src/entities/Boss/boss_projetil.gd
+res://default_bus_layout.tres
+res://src/ui/menus/vitoria.tscn
+res://src/ui/menus/som_vitoria.gd
 res://src/ui/menus/vitoria.gd
+res://src/scenes/mundo_2/mundo_2.tscn
+res://src/scenes/mundo/mundo.tscn

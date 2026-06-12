@@ -1,9 +1,9 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://d0gbotmt8rhow"]
 
-[ext_resource type="Script" path="res://src/ui/menus/vitoria.gd" id="1_vitoria"]
-[ext_resource type="Script" path="res://src/ui/menus/menu_button_effect.gd" id="2_button"]
-[ext_resource type="Texture2D" path="res://assets/Tela_de_vitoria.png" id="3_vitoria"]
-[ext_resource type="AudioStream" path="res://assets/Soundtrack/Som iniciar.mp3" id="4_music"]
+[ext_resource type="Script" uid="uid://r6l4534vtqse" path="res://src/ui/menus/vitoria.gd" id="1_vitoria"]
+[ext_resource type="Script" uid="uid://cv33ki73l0uba" path="res://src/ui/menus/menu_button_effect.gd" id="2_button"]
+[ext_resource type="Texture2D" uid="uid://dy683ho1pelk7" path="res://assets/Tela_de_vitoria.png" id="3_vitoria"]
+[ext_resource type="AudioStream" uid="uid://0iy8qw82gnut" path="res://assets/Soundtrack/videoplayback.wav" id="4_music"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -11,7 +11,7 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button_hover"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[node name="vitoria" type="Control"]
+[node name="vitoria" type="Control" unique_id=701842535]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,7 +20,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vitoria")
 
-[node name="FundoVitoria" type="TextureRect" parent="."]
+[node name="FundoVitoria" type="TextureRect" parent="." unique_id=1620285170]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -31,33 +31,33 @@ texture = ExtResource("3_vitoria")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="JogarNovamente" type="Button" parent="."]
+[node name="JogarNovamente" type="Button" parent="." unique_id=1679513534]
 layout_mode = 0
 offset_left = 128.0
 offset_top = 737.0
 offset_right = 645.0
 offset_bottom = 837.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_button")
-theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_button_hover")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 theme_override_styles/focus = SubResource("StyleBoxFlat_button")
 script = ExtResource("2_button")
 
-[node name="Menu" type="Button" parent="."]
+[node name="Menu" type="Button" parent="." unique_id=747408910]
 layout_mode = 0
 offset_left = 128.0
 offset_top = 866.0
 offset_right = 647.0
 offset_bottom = 967.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_button")
-theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_button_hover")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 theme_override_styles/focus = SubResource("StyleBoxFlat_button")
 script = ExtResource("2_button")
 
-[node name="SomVitoria" type="AudioStreamPlayer" parent="."]
+[node name="SomVitoria" type="AudioStreamPlayer" parent="." unique_id=1535180546]
 stream = ExtResource("4_music")
-volume_db = -14.0
+volume_db = -8.0
 autoplay = true
 
 [connection signal="pressed" from="JogarNovamente" to="." method="_on_jogar_novamente_pressed"]
