@@ -808,26 +808,26 @@ visible = false
 
 [node name="esqueleto" parent="." unique_id=414904559 groups=["inimigo"] instance=ExtResource("10_pij3u")]
 z_index = 1
-position = Vector2(1093, 168)
+position = Vector2(2338, -44)
 
 [node name="esqueleto2" parent="." unique_id=1788246312 groups=["inimigo"] instance=ExtResource("10_pij3u")]
 z_index = 1
-position = Vector2(844, 171)
+position = Vector2(1180, 168)
 
 [node name="esqueleto3" parent="." unique_id=1039403348 groups=["inimigo"] instance=ExtResource("10_pij3u")]
 z_index = 1
-position = Vector2(1317, 173)
+position = Vector2(1302, 165)
 
 [node name="esqueleto5" parent="." unique_id=228159805 groups=["inimigo"] instance=ExtResource("10_pij3u")]
 z_index = 1
-position = Vector2(2170, -44)
+position = Vector2(2203, -45)
 
 [node name="esqueleto4" parent="." unique_id=669051192 groups=["inimigo"] instance=ExtResource("10_pij3u")]
 z_index = 1
-position = Vector2(1629, 205)
+position = Vector2(1717, 200)
 
 [node name="esqueleto6" parent="." unique_id=1266525134 instance=ExtResource("10_pij3u")]
-position = Vector2(937, 166)
+position = Vector2(1053, 168)
 
 [node name="PortaFinal" parent="." unique_id=1185305876 instance=ExtResource("11_door")]
 position = Vector2(2735, 183)
@@ -904,11 +904,11 @@ position = Vector2(685, 413)
 
 [node name="Municao" parent="MunicaoPickup" unique_id=1087857285 instance=ExtResource("7_2hh7m")]
 z_index = 1
-position = Vector2(-302, -255)
+position = Vector2(788, -226)
 
 [node name="Municao2" parent="MunicaoPickup" unique_id=1798499748 instance=ExtResource("7_2hh7m")]
 z_index = 1
-position = Vector2(53, -271)
+position = Vector2(861, -226)
 
 [node name="Municao3" parent="MunicaoPickup" unique_id=1828784291 instance=ExtResource("7_2hh7m")]
 z_index = 1
@@ -916,7 +916,7 @@ position = Vector2(1013, -197)
 
 [node name="Municao4" parent="MunicaoPickup" unique_id=1354790663 instance=ExtResource("7_2hh7m")]
 z_index = 1
-position = Vector2(1338, -318)
+position = Vector2(1446, -316)
 
 [node name="Fundo 1" type="Parallax2D" parent="." unique_id=597516216]
 scroll_scale = Vector2(0.1, 1)
