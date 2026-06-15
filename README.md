@@ -89,7 +89,3 @@ Protótipo funcional com duas etapas principais:
 2. Uma arena final dedicada ao confronto contra o chefe.
 
 O projeto pode ser expandido com novas fases, sistema de vida ou escudo para o jogador, narrativa mais detalhada, balanceamento de dificuldade, novas trilhas e mais efeitos sonoros.
-
-## Licença
-
-Este repositório ainda não possui uma licença definida. Antes de reutilizar código, imagens ou sons, verifique as permissões dos autores e dos assets utilizados.
