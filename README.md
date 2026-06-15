@@ -1,179 +1,113 @@
-# Last Sign of Freedom: A Sci-Fi Saga of Identity and Consciousness
+# Last Sign of Freedom
 
-**Last Sign of Freedom** is a 2D story-driven sci-fi action-platformer that places players in the shoes of a genetically engineered human grappling with simulated memories and the struggle for true liberation. Blending fast-paced combat, environmental puzzles, and a branching narrative, the game explores themes of identity, free will, and what it truly means to be alive.
+**Last Sign of Freedom** é um protótipo jogável de plataforma 2D com ação e ambientação cyberpunk, desenvolvido em **Godot** com **GDScript**.
 
-## 🎮 How to Play
+O jogador controla um personagem armado que atravessa instalações hostis em busca de liberdade. A experiência combina movimentação lateral, saltos, combate com tiros, munição limitada, inimigos em patrulha, progressão por portas e um confronto final contra um chefe.
 
-**Last Sign of Freedom** is built with Godot 4 and can be played directly in your web browser or desktop!
+![Tela inicial de Last Sign of Freedom](assets/Imagens/tela_inicio.png)
 
-### 🖥️ Desktop
-1.  Download the game for Windows, macOS, or Linux from the [itch.io page](https://gamejolt.com/games/last-sign-of-freedom/1042196).
-2.  Extract the downloaded zip file.
-3.  Open the game folder and run the executable (e.g., `LastSignOfFreedom.exe`).
+## Sobre o jogo
 
-### 🌐 Browser
-1.  Visit the [itch.io page](https://gamejolt.com/games/last-sign-of-freedom/1042196).
-2.  Click the green **"Play"** button.
-3.  Use your keyboard to control the character:
-    *   **←/→** or **A/D**: Move
-    *   **↑** or **W**: Jump
-    *   **← + Space** or **↓ + Space**: Wall jump
-    *   **Space**: Shoot
+O jogo foi criado como um projeto acadêmico e busca entregar um ciclo completo de gameplay: iniciar a partida, explorar a fase, eliminar inimigos, liberar a passagem, enfrentar o chefe, perder ou vencer.
 
-## 📖 Story Overview
+A proposta narrativa coloca o jogador como um sujeito experimental tentando escapar de um ambiente tecnológico e opressor. A direção visual usa elementos de ficção científica, cenários industriais, pixel art, luzes neon e interfaces simples para reforçar a atmosfera cyberpunk.
 
-You awaken as Subject 01, a clone who has lived multiple simulated lives within a high-tech facility. As your memories surface, you realize your entire existence may be a fabrication designed to serve the enigmatic Project Chimera. Joined by two AI companions, Echo and Cypher, you must fight through facility guards and robotic defenses to reach the truth at the heart of the complex. But as you get closer to the truth, you must make critical decisions that will shape your destiny and determine the fate of others caught in the experiment.
+## Gameplay
 
-## 🌟 Key Features
+- Plataforma 2D com movimentação lateral.
+- Mira e disparo direcionados pelo mouse.
+- Munição limitada com coletáveis para recarga.
+- Inimigos que patrulham, detectam o jogador e atiram.
+- Porta que só abre após derrotar todos os inimigos da fase.
+- Sistema de checkpoint entre fases.
+- HUD com tempo de partida e munição.
+- Menu inicial, pausa, tela de game over e tela de vitória.
+- Batalha final contra um chefe com vida, patrulha, perseguição e projéteis.
 
--   **Branching Narrative**: Your choices matter! Difficult decisions will impact the story, characters, and ending.
--   **Fast-Paced Combat**: Wield energy weapons and execute stylish aerial maneuvers to defeat enemies.
--   **Environmental Puzzles**: Utilize gravity manipulation and your platforming skills to navigate complex levels.
--   **Multiple Endings**: Discover different outcomes based on your choices throughout the game.
--   **AI Companions**: Interact with Echo and Cypher, whose support and insights evolve with your decisions.
--   **Console-Quality Production**: Experience a fully voiced campaign with professional voice acting, detailed pixel art, and a dynamic soundtrack.
+## Controles
 
-## 🛠️ Tech Stack
+| Ação | Teclas / Comando |
+| --- | --- |
+| Mover para a esquerda | `A` ou seta esquerda |
+| Mover para a direita | `D` ou seta direita |
+| Pular | `W`, seta para cima ou `Espaço` |
+| Mirar | Mouse |
+| Atirar | Botão esquerdo do mouse |
+| Pausar | `Esc` |
 
-**Last Sign of Freedom** is built with:
+## Imagens
 
--   **Game Engine**: [Godot 4](https://godotengine.org/) (GDScript)
--   **Programming Language**: GDScript
--   **Graphics**: Godot Engine 2D System
--   **Audio**: Custom sound effects and adaptive music system
+### Fase inicial
 
-## 🚀 Development
+![Momento inicial do jogo](docs/Momento%20inicial%20do%20jogo.png)
 
-### Getting Started
+### Porta liberada
 
-#### Prerequisites
--   **Godot Engine 4.2** or higher
--   **Python 3.x** (optional, for build tools)
+![Porta liberada](docs/Porta%20liberada.png)
 
-#### Installation
-1.  Clone the repository:
-    ```bash
-    git clone https://github.com/username/Last-Sign-of-Freedom.git
-    cd Last-Sign-of-Freedom
-    ```
-2.  Open the project in Godot Engine:
-    -   Launch Godot
-    -   Click "Import" and select the project folder
-    -   Or use "Open" and navigate to the project folder
-3.  Run the game:
-    -   Press **F5** to run with debugger
-    -   Press **Ctrl+R** or **Cmd+R** to run without debugger
+### Covil do chefe
 
-#### Building for Desktop
-Use the included build script to create native executables:
+![Covil do chefe](docs/Covil%20do%20boss.png)
+
+### Ataque do chefe
+
+![Ataque do chefe](docs/Ataque%20do%20boss.png)
+
+## Como executar
+
+1. Instale o Godot 4.6 ou uma versão compatível do Godot 4.
+2. Clone este repositório:
 
 ```bash
-./build.sh
+git clone <url-do-repositorio>
 ```
 
-This will generate executables for Windows, macOS, and Linux in the `build/` directory.
+3. Abra o Godot.
+4. Selecione **Importar**.
+5. Escolha o arquivo `project.godot` na raiz do projeto.
+6. Execute a cena principal pelo editor.
 
-### Project Structure
+O projeto está configurado para iniciar pelo menu principal.
 
-```
-Last-Sign-of-Freedom/
-├── assets/             # Game assets (images, audio, fonts)
-│   ├── characters/     # Character sprites and animations
-│   ├── enemies/        # Enemy assets
-│   ├── environment/    # Level tiles and background elements
-│   ├── ui/             # User interface elements
-│   ├── audio/          # Sound effects and music
-│   └── fonts/          # Fonts for UI and text
-├── levels/             # Level design scenes
-│   ├── prologue.tscn   # Introduction level
-│   ├── corridor_01.tscn # Early game levels
-│   ├── labs_01.tscn    # Laboratory environments
-│   └── ...             # Complete level set
-├── scripts/            # GDScript code
-│   ├── player/         # Player controller and abilities
-│   ├── enemies/        # Enemy AI and behavior
-│   ├── game_management/ # Game state and scene management
-│   ├── ui/             # UI logic
-│   ├── programming/    # Core game systems
-│   └── utils/          # Helper functions and utilities
-├── shaders/            # Custom shader effects
-├── cinematic/         # Pre-rendered cutscenes
-├── build/              # Compiled game builds (generated)
-└── build.sh            # Build script
+## Estrutura do projeto
+
+```text
+assets/                 Assets visuais, sons, fontes e tilesets
+docs/                   Imagens e materiais de documentação
+src/components/         Componentes reutilizáveis de colisão
+src/entities/           Jogador, inimigos e chefe
+src/objects/            Balas, armas, portas e coletáveis
+src/scenes/             Fases jogáveis
+src/singletons/         Estado global e checkpoint
+src/ui/                 HUD, menus e telas de fluxo
+project.godot           Configuração do projeto Godot
 ```
 
-### Key Scripts
+## Principais sistemas
 
--   `scripts/player/player.gd`: Main player controller with movement, shooting, and wall jump mechanics.
--   `scripts/player/player_abilities.gd`: Manages energy weapon usage and ability cooldowns.
--   `scripts/programming/game_manager.gd`: Singleton for global game state, level transitions, and cinematic handling.
--   `scripts/game_management/scene_loader.gd`: Handles loading and transitioning between game scenes with smooth fade effects.
--   `scripts/programming/decision_manager.gd`: Manages player choices and their impact on the narrative.
+- **Personagem:** movimentação, salto, disparo, controle de munição, cronômetro e morte por queda ou projéteis.
+- **Inimigos:** patrulha, detecção do jogador, ataque à distância e animação de morte.
+- **Chefe:** comportamento flutuante, perseguição, ataque com projéteis, vida própria, feedback de dano e transição para vitória.
+- **Portas:** verificam se todos os inimigos foram derrotados antes de liberar a passagem.
+- **Checkpoint:** permite reiniciar a partir da fase atual após a derrota.
+- **Interface:** exibe munição, tempo, pausa, game over e vitória.
 
-### Workflow
+## Tecnologias
 
-1.  **Design Level**: Create or modify level scenes in the `levels/` directory.
-2.  **Implement AI**: Design enemy behavior in `scripts/enemies/`.
-3.  **Add Features**: Create new abilities or systems in `scripts/programming/`.
-4.  **Update UI**: Modify menus and HUD in `scripts/ui/`.
-5.  **Test**: Use **F5** to play and debug.
-6.  **Build**: Run `./build.sh` to create distributable versions.
+- Godot 4.6
+- GDScript
+- Cenas 2D com `CharacterBody2D`, `Area2D`, `AnimatedSprite2D`, timers e grupos
+- Assets em pixel art, efeitos sonoros e imagens de interface
 
-## 🕹️ Controls Reference
+## Status
 
-### In-Game
--   **A/D** or **←/→**: Move
--   **Space**: Jump / Shoot
--   **↑**: Jump
--   **← + Space** or **↓ + Space**: Wall jump
--   **Esc**: Pause menu
+Protótipo funcional com duas etapas principais:
 
-### Build Script
+1. Uma fase inicial com plataformas, soldados inimigos, munição e porta de progressão.
+2. Uma arena final dedicada ao confronto contra o chefe.
 
-```bash
-# Build for all platforms
-./build.sh
+O projeto pode ser expandido com novas fases, sistema de vida ou escudo para o jogador, narrativa mais detalhada, balanceamento de dificuldade, novas trilhas e mais efeitos sonoros.
 
-# Build only for Windows (if on Linux/macOS)
-./build.sh windows
+## Licença
 
-# Clean build artifacts
-./build.sh clean
-```
-
-## 📝 Development Roadmap
-
-### Phase 1: Core Gameplay (Completed)
--   [x] Player controller with movement and jumping
--   [x] Basic combat system with energy weapon
--   [x] Wall jump mechanics
--   [x] Level design and tilemap implementation
--   [x] Basic UI (health bar, pause menu)
-
-### Phase 2: Narrative Integration (Completed)
--   [x] Decision-making system
--   [x] Branching dialogue and interactions
--   [x] Cinematics and cutscenes
--   [x] Multiple endings
--   [x] AI companion integration (Echo and Cypher)
-
-### Phase 3: Polish & Expansion (Completed)
--   [x] Visual effects (screen shake, particles, impacts)
--   [x] Audio system (sound effects, music, voice acting)
--   [x] Accessibility options
--   [x] Localization support
--   [x] Performance optimization
-
-## 📜 Credits
-
-### Development Team
--   **Owner**: [Your Name/Organization](https://github.com/username)
--   **Game Engine**: [Godot Engine](https://godotengine.org/)
-
-### Assets
--   **Graphics**: [Creator Name] (if applicable)
--   **Audio**: [Creator Name/Sound Library] (if applicable)
--   **Music**: [Composer Name] (if applicable)
-
-### Special Thanks
--   The entire Godot
+Este repositório ainda não possui uma licença definida. Antes de reutilizar código, imagens ou sons, verifique as permissões dos autores e dos assets utilizados.
