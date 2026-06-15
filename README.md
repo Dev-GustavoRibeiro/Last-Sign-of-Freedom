@@ -35,24 +35,6 @@ A proposta narrativa coloca o jogador como um sujeito experimental tentando esca
 | Atirar | Botão esquerdo do mouse |
 | Pausar | `Esc` |
 
-## Imagens
-
-### Fase inicial
-
-![Momento inicial do jogo](docs/Momento%20inicial%20do%20jogo.png)
-
-### Porta liberada
-
-![Porta liberada](docs/Porta%20liberada.png)
-
-### Covil do chefe
-
-![Covil do chefe](docs/Covil%20do%20boss.png)
-
-### Ataque do chefe
-
-![Ataque do chefe](docs/Ataque%20do%20boss.png)
-
 ## Como executar
 
 1. Instale o Godot 4.6 ou uma versão compatível do Godot 4.
